@@ -1,0 +1,45 @@
+{
+  "name": "MLOps Environment (Python 3.11)",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.11-bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true,
+        "python.formatting.provider": "black",
+        "editor.formatOnSave": true,
+        "python.terminal.activateEnvironment": true
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "ms-toolsai.jupyter",
+        "ms-toolsai.vscode-jupyter-cell-tags",
+        "ms-toolsai.jupyter-keymap",
+        "ms-toolsai.jupyter-renderers",
+        "Iterative.dvc",
+        "eamodio.gitlens",
+        "njpwerner.autodocstring"
+      ]
+    }
+  },
+  "forwardPorts": [8000, 5000],
+  "portsAttributes": {
+    "8000": {
+      "label": "FastAPI Service",
+      "onAutoForward": "notify"
+    },
+    "5000": {
+      "label": "MLflow UI",
+      "onAutoForward": "notify"
+    }
+  },
+  "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt && pre-commit install",
+  "remoteUser": "vscode"
+}

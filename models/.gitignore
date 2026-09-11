@@ -1,0 +1,4 @@
+# Ignore all trained model weights, checkpoints, and binaries
+*
+!.gitignore
+!.gitkeep

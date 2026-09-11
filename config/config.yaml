@@ -1,0 +1,39 @@
+# Project Configuration
+project_name: "mlops-stock-sentiment-uncertainty"
+version: "1.0.0"
+
+# Target Stocks (Indonesia Big Cap)
+stocks:
+  - "BBCA"
+  - "BBRI"
+  - "BMRI"
+  - "BBNI"
+  - "TLKM"
+  - "ASII"
+  - "UNVR"
+  - "TPIA"
+  - "HMSP"
+  - "BYAN"
+
+# Data Paths
+paths:
+  raw_data: "data/raw"
+  interim_data: "data/interim"
+  processed_data: "data/processed"
+  models_dir: "models"
+
+# Active Learning & Retraining Thresholds
+active_learning:
+  uncertainty_lower_bound: 0.40
+  uncertainty_upper_bound: 0.60
+  pool_trigger_size: 100
+  performance_f1_threshold: 0.75
+
+# Model Hyperparameters
+model:
+  pretrained_model: "indobenchmark/indobert-base-p1"
+  num_labels: 3
+  max_length: 128
+  batch_size: 16
+  learning_rate: 2.0e-5
+  epochs: 3
