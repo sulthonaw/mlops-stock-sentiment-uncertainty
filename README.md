@@ -77,7 +77,7 @@ flowchart TD
         D4["Uncertainty Sampling (40-60% Confidence)"]
         D5["Active Learning Pool (Threshold: 100 data)"]
         D6["Human-in-the-Loop Annotation"]
-        
+
         C4 --> D1
         D1 --> D2
         D1 --> D3
@@ -100,11 +100,14 @@ mlops-stock-sentiment-uncertainty/
 │   ├── config.yaml              # Hyperparameter, path, dan ambang batas retraining
 │   └── .gitkeep
 ├── data/
-│   ├── .gitignore               # Menjaga file data tidak ter-commit ke Git
+│   ├── .gitignore               # Aturan ignorasi data (unignore crawl CSV & raw stream)
 │   ├── raw/
-│   │   └── .gitkeep             # Dataset baseline ID-SMSA & hasil crawl mentah
+│   │   ├── .gitkeep             # Dataset baseline ID-SMSA
+│   │   ├── x_stock_tweets_*.csv # Cuitan mentah hasil crawl extension 10 saham Big Cap
+│   │   └── raw_stream_*.json    # Batch konsolidasi stempel waktu & metadata
 │   ├── interim/
-│   │   └── .gitkeep             # Data hasil pembersihan sementara
+│   │   ├── .gitkeep
+│   │   └── interim_stream_*.parquet # Data bersih standar ID-SMSA (Parquet/CSV)
 │   ├── processed/
 │   │   └── .gitkeep             # Data siap training & active learning pool
 │   └── external/
@@ -117,6 +120,8 @@ mlops-stock-sentiment-uncertainty/
 │   └── .gitkeep
 ├── src/
 │   ├── __init__.py
+│   ├── ingest_data.py           # Penarikan, validasi, & konsolidasi data dinamis
+│   ├── preprocess.py            # Automasi normalisasi teks standar ID-SMSA
 │   ├── api/
 │   │   ├── __init__.py
 │   │   └── app.py               # REST API FastAPI untuk data ingestion & inferensi
@@ -174,3 +179,77 @@ Repositori ini telah dikonfigurasi dengan `.devcontainer/devcontainer.json` sehi
    pip install --upgrade pip
    pip install -r requirements.txt
    ```
+
+---
+
+## 📥 Implementasi LK-04: Penarikan Data Dinamis & Automasi Prapemrosesan
+
+Pada tahapan **LK-04**, pipeline MLOps ini telah dilengkapi dengan komponen penarikan data (*data ingestion*) dinamis dan automasi prapemrosesan (*text preprocessing automation*) untuk mengolah percakapan saham mentah dari platform X secara terstruktur dan non-destruktif.
+
+### 1. Format Data Mentah Hasil Web Crawling
+Data mentah dikumpulkan menggunakan *custom browser extension* tanpa biaya API berbayar dengan menyasar 10 emiten saham Big Cap Indonesia:
+`$BBCA`, `$BBRI`, `$BMRI`, `$BBNI`, `$TLKM`, `$ASII`, `$UNVR`, `$TPIA`, `$HMSP`, `$BYAN`.
+
+Berkas hasil crawl disimpan langsung pada `data/raw/x_stock_tweets_*.csv` dengan skema yang telah diselaraskan dengan baseline ID-SMSA:
+- `Sentence`: Teks cuitan mentah pengguna.
+- `Sentiment`: Label sentimen (`null` / *unlabeled* untuk data dinamis).
+- `Tweet Date`: Waktu cuitan dibuat (format string Twitter).
+- `English Translation`: Terjemahan bahasa Inggris (opsional).
+- `Favorite Count`: Jumlah suka (*like*).
+- `Retweet Count`: Jumlah cuitan ulang (*retweet*).
+- `Reply Count`: Jumlah balasan (*reply*).
+- `Quote Count`: Jumlah kutipan (*quote*).
+
+### 2. Skrip Ingestion Dinamis (`src/ingest_data.py`)
+Skrip ini bertugas memindai, memvalidasi skema, mendeteksi emiten, dan mengonsolidasi berkas crawl ke dalam format batch stream berstempel waktu tanpa menimpa (*non-destructive*) file lama.
+
+**Fitur Utama:**
+- **Validasi Skema Otomatis:** Memastikan keberadaan dan urutan 8 kolom standar.
+- **Konsolidasi Berstempel Waktu:** Menghasilkan berkas baru `data/raw/raw_stream_%Y%m%d_%H%M%S.json` dan `.csv`.
+- **Batch Metadata Tracking:** Mencatat `ingestion_timestamp`, `batch_id`, `total_records`, daftar emiten (`tickers`), `schema_version`, dan file sumber.
+- **Simulasi Live Stream (`--mock-new`):** Menyediakan opsi simulasi penambahan data cuitan baru terkini untuk pengujian berkala.
+
+**Contoh Eksekusi CLI Ingestion:**
+```bash
+# 1. Ingest seluruh berkas crawl mentah (ekspor JSON dan CSV)
+python src/ingest_data.py --format both
+
+# 2. Ingest berkas crawl mentah sekaligus menyimulasikan data stream baru
+python src/ingest_data.py --mock-new --mock-count 10 --format both
+```
+
+### 3. Automasi Prapemrosesan Data (`src/preprocess.py`)
+Skrip ini mentransformasi cuitan mentah dari `data/raw/` menjadi korpus bersih terstandarisasi di `data/interim/`.
+
+**Tahapan Normalisasi (Konsisten Standar ID-SMSA):**
+1. **Normalisasi Akun (`@username`):** Diganti menjadi token `[USERNAME]`.
+2. **Normalisasi Tautan (URL):** Diganti menjadi token `[URL]`.
+3. **Normalisasi Tagar (`#hashtag`):** Diganti menjadi token `[HASHTAG]`.
+4. **Pembersihan Whitespace:** Menghilangkan baris baru berlebih (`\n\r`) dan mereduksi spasi ganda menjadi spasi tunggal.
+5. **Penanganan Missing Values:** Menghapus baris dengan teks kosong atau `NaN`.
+6. **Deduplikasi Teks:** Menghapus entri cuitan duplikat berdasarkan kolom `Sentence`.
+7. **Penyimpanan Berkas Interim:** Disimpan ke `data/interim/interim_stream_<source>_<timestamp>.parquet` dan `.csv` disertai berkas metadata pelacak.
+
+**Contoh Eksekusi CLI Prapemrosesan:**
+```bash
+# 1. Prapemrosesan batch stream terbaru otomatis dari data/raw/
+python src/preprocess.py --format both
+
+# 2. Prapemrosesan berkas batch mentah spesifik
+python src/preprocess.py --input-path data/raw/raw_stream_20260928_144339.json --format both
+```
+
+**Ringkasan Log Terminal yang Dihasilkan:**
+```text
+============================================================
+           RINGKASAN PRAPEMROSESAN DATA (LK-04)
+============================================================
+Berkas Sumber        : raw_stream_20260928_144339.json
+Jumlah Baris Awal    : 211
+Missing Values Dibuang: 0
+Duplikat Dihapus     : 66
+Total Baris Bersih   : 145
+Format Ekspor        : both
+Direktori Output     : E:\mlops-stock-sentiment-uncertainty\data\interim
+============================================================
+```

@@ -1,0 +1,2146 @@
+{
+  "metadata": {
+    "ingestion_timestamp": "2026-09-28T14:43:39.087610+00:00",
+    "batch_id": "batch_20260928_144339",
+    "total_records": 211,
+    "mock_records_added": 5,
+    "tickers": [
+      "BBCA",
+      "BBNI",
+      "BBRI",
+      "BMRI",
+      "BYAN",
+      "HMSP",
+      "TLKM",
+      "TPIA",
+      "UNVR"
+    ],
+    "schema_version": "1.0.0",
+    "source_files": [
+      "x_stock_tweets__bbca_or_bbri_or_bmri_or_bbni_or_tlkm_or_asii_or_unvr_or_tpia_or_hmsp_or_byan_since_2026-09-14_until_2026-09-21_2026-09-28.csv",
+      "x_stock_tweets__bbca_or_bbri_or_bmri_or_bbni_or_tlkm_or_asii_or_unvr_or_tpia_or_hmsp_or_byan_since_2026-09-21_until_2026-09-29_2026-09-28.csv"
+    ],
+    "columns": [
+      "Sentence",
+      "Sentiment",
+      "Tweet Date",
+      "English Translation",
+      "Favorite Count",
+      "Retweet Count",
+      "Reply Count",
+      "Quote Count"
+    ]
+  },
+  "records": [
+    {
+      "Sentence": "Ada apa dengan saham $BBRI?\n\nTumben -3%\n\nAda benteng Takeshi di level 3190-3200. Rada serem kalau ambrol",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 22 03:51:20 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 81,
+      "Retweet Count": 10,
+      "Reply Count": 12,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "kemarin kalo $BYAN  tidak di lepas, maka ijin RKAB tidak di terbitkan, \n\nnah kalo $BBCA tidak mau di lepas, mereka ancam nya pakai ijin apa ya?",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 07:01:52 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 1331,
+      "Retweet Count": 213,
+      "Reply Count": 88,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Narasi Kripto Mendatang\n\nSaham Berpasangan Kripto \nNFT Berpasangan Kripto \nMerek Mewah Berpasangan Kripto",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 22 13:56:43 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 175,
+      "Retweet Count": 16,
+      "Reply Count": 15,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Ketika dipasangkan $BBCA atau $BBNI ser?",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 22 13:57:39 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 2,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Banyak yang mikir Low dipaksa jual $BYAN ke Haji Isam dengan sandra RKAB. Tapi, bagaimana jika sebaliknya, Low justru butuh bekingan untuk dapat persetujuan itu?",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 21 04:49:17 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "$BBRI ada potensi membentuk hidden bullish divergence, tinggal tunggu konfirmasi candle selanjutnya. Selama $BBRI ga turun dibawah 3200 menurut saya sangat mungkin untuk harga naik ke 3600 di tahun ini.",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 14 14:35:18 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 64,
+      "Retweet Count": 4,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Beberapa emiten terjadi pembelian kuat oleh orang kuat\n\n$bris\n$hmsp\n\nDll",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 04:10:26 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 14,
+      "Retweet Count": 1,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Jadi inget $BBCA mau di backdoor Blackrock",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 10:54:39 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 26,
+      "Retweet Count": 1,
+      "Reply Count": 2,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "tunggu $BBCA 5800-an aja kali ya..",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 22 07:34:47 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 3,
+      "Retweet Count": 0,
+      "Reply Count": 2,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "buy the dip! serok $bbri di rp3.180 pas harganya lagi down. chartnya emang lagi nyungsep, tapi berani cicil beli buat jangka panjang.  #aplikasiajaib #bbri #investasi",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 15:00:52 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Saham-saham terkait Haji Isam\n\n$BYAN ARA\n\nIHSG open +50 poin",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 18 01:59:52 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 39,
+      "Retweet Count": 9,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Asyuu rusak\nUlah siapa nih?\n\n$BBRI",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 11:41:40 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 1,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "kalau emang nantinya $BBCA bisa diakuisisi dengan kecurangan, artinya gak ada yg bisa menjamin investasi di indonesia bakal aman, siapapun itu. Perusahaan sebesar itu aja bisa ditukar guling, apalagi perusahaan yg lebuh kecil. Kabur aja dah investor",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 13:05:17 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 13,
+      "Retweet Count": 3,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "$BYAN  pagi ini \n\nwkwkkw NGERIIII banget yang Rakus  mau punya BYAN",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 18 01:59:29 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 15,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "ritel unyu nih bandel2 banget ya, \n\nmasih ada loh yang beli $GOTO di harga 43,\n\nplis  cek  dulu orderbook nya, \nantrian ARB nya 1 Milyar lot itu.",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 02:59:01 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 102,
+      "Retweet Count": 3,
+      "Reply Count": 19,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "kenapa $GOTO ?\n\nteman nya jawab, \nkan itu produk yang pakai sehari2, \nitu yang kamu pakai gejok , tokped, gopay later itu kan produk nya $GOTO, ,hahaha",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 07:49:46 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 4,
+      "Retweet Count": 0,
+      "Reply Count": 2,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "$UNVR moment",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 13:36:56 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Kronologi akuisisi Haji Isam di $BYAN\n\n- 9 Sept 2026 : Haji Isam tawar $BYAN diharga murah (-80% harga market).\n- 15 Sept 2026 : RKAB Bayan belum disetujui oleh pemerintah dan Bayan menetapkan Kondisi Kahar/Force Majeur.\n- 17 Sept 2026 : Haji Isam resmi mengakuisisi 30%",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 18 06:59:50 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 962,
+      "Retweet Count": 322,
+      "Reply Count": 27,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Setelah menyelesaikan 5 swing naik wave a merah di 3440, posisi harga saham #BBRI saat ini sedang menyelesaikan wave b merah sampai ke area 2990 - 2883\n\nJadi masih ada peluang harga sahamnya bisa kembali naik untuk menyelesaikan wave c merah dari wave ....",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 23 10:07:32 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 11,
+      "Retweet Count": 2,
+      "Reply Count": 2,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Tapi bagaimana jika harga saham $BBRI masih lanjut tertekan turun sampai ke bawah area 2990 - 2883?\n\nPembahasan selengkapnya di sini",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 23 10:07:32 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Pasar saham rebound sekitar +30an poin\n\nDitarik pakai $BYAN yang naik +15%\n\nIsu RKAB sudah bereskah? Kayanya belum ya",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 16 02:18:26 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 12,
+      "Retweet Count": 4,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Setelah menyelesaikan wave I merah di 4000, posisi harga saham #BBNI saat ini sedang menyelesaikan wave II merah di area 3545 - 3437 yang sudah tercapai dari minggu lalu",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 10:12:23 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 6,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Jadi masih ada peluang harga sahamnya bisa kembali naik untuk menyelesaikan wave III merah dari wave (c) biru dari wave ..\n\nTapi bagaimana jika harga saham $BBNI masih lanjut tertekan turun sampai ke bawah area 3545 - 3437?\n\nPembahasan selengkapnya di sini",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 10:12:24 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "harga $BBCA tetap gak gerak walopun ada rumor mau di akuisisi haji Isam, \n \nrumor apa dong yang bisa bikin $BBCA langsung ARA ?",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 08:07:00 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 106,
+      "Retweet Count": 6,
+      "Reply Count": 20,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Pasang antrean beli $BBRI di harga Rp3.100. Buat investasi jangka panjang, manfaatin penyesuaian harga di saham blue chip begini emang strategi yang cukup rasional, asal tetep masuk secara bertahap  #AplikasiAjaib #porto",
+      "Sentiment": NaN,
+      "Tweet Date": "Sun Sep 27 14:39:42 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Pengambilalihan bermusuhan terjadi ketika sebuah entitas mengambil alih kendali atas sebuah perusahaan melawan keinginan manajemen perusahaan .....\n\nkelakuan Jhonlin belanja saham $BYAN gini tergolong \"hostile takeover\" gak sih ?",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 17 16:26:24 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 41,
+      "Retweet Count": 5,
+      "Reply Count": 2,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "IHSG REBOUND 1,56% KE 6.374,91 — INI PENYEBABNYA\nKemarin ambruk 1,69%, hari ini balas dendam. Tapi jangan buru-buru euforia — ada yang solid, ada yang cuma gorengan bandar. Breakdown lengkap di bawah",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 23 12:43:01 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 11,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "KABAR POSITIFNYA \n\n1. BI TAHAN SUKU BUNGA 5,75% (3X BERUNTUN)\nRDG BI hari ini pertahankan BI-Rate, hold ketiga beruntun. Ini yang hapus ketidakpastian & jadi trigger utama IHSG lompat begitu diumumkan siang tadi.\n$BBRI $BMRI $BBNI",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 23 12:44:24 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Perhtian para pelaku pasar hari ini tertju pd Gedung Bank Indonesia.\n​Gelrn Rapat Dewan Gubernur (RDG) BI resmi dimlai utk mentukn arh BI-Rate. Konsensus pasar memprkrkn BI msh akn mnhan suku bunga di level 5,75%.\n​Mgp keptusn kali ini sngt krusial bgi IHSG & sektor perbankn?",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 22 01:12:04 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Di satu sisi, langkah The Fed kian agresif memicu penguatan Dolar AS yang menekan pergerakan nilai tukar Rupiah.\n​Di sisi lain, menaikkan BI-Rate terlalu cpt bisa menahan laju pertumbuhan kredit domestik.",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 22 01:12:05 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Apa artinya bgi sham Watchlist kita?\n• Perbankn (Big Caps): Suku bunga yg dithan di 5,75% menjg Cost of Funds (CoF) tdk membgkk, shgga marjin bunga bersih (NIM) emiten sprt $BBCA & $BBRI tetap trjg tebal.\n• Sektor Riil & Consumer: Mnghdri bban bunga yg mkn tinggi bgi konsmen",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 22 01:12:06 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Kemarin $BAYAN sekayang $BBCA, Walaupun masih wacana sih ada gila-gilanya wkwkw",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 08:34:21 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Menarik nih $BBCA",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 15:51:30 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "$BBCA diambil isam, gue pindah ke $BDMR. Fix no debat.",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 09:09:49 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 2,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Lebih dari 2.300 investor udah masuk ke $BBRI di harga 3.180. Bukti kalau emiten dengan fundamental kuat bakal selalu jadi pilihan utama buat jangka panjang #AplikasiAjaib #saham",
+      "Sentiment": NaN,
+      "Tweet Date": "Sun Sep 27 13:57:32 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "$IHSG kedepannya yang lebih menarik saham < Rp. 50 daripada > Rp. 50, apalagi yang big cap seperti $BBCA dll, buang\" jauh deh itu saham, kecuali yang liquiditasnya tipis, baru deh gpp\n\n*terlepas dari fundamental atau engga",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 06:38:28 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 2,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Data aktivitas asing tengah hari 17 September:\n\nNet beli asing Rp77,54 M\n\n$BMRI, $CUAN, $BBRI jadi top net beli asing",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 17 05:23:10 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 13,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Ini adadata penelusuran dari pakar saham $ihsg\n\nCoba lo telaah dengan kepala dingin\n$tpia\n$goto\n$bumi\n$dssa",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 23 04:49:56 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 14,
+      "Retweet Count": 2,
+      "Reply Count": 2,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "kira2 Haji isam nawar $BBCA di harga berapa ya?",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 07:41:49 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 141,
+      "Retweet Count": 17,
+      "Reply Count": 32,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Oooooohhhhh...... Jd yg nyuruh Cak Imin, trs lwt Wowo bakal nyuruh Pak Haji. Kalo gak mau, nanti kasusnya sm spt saham $BYAN , NGERIK BANGET MAINNYA BTW Cak Imin ada kepentingan apa ya nyuruh WOWO ambil $BBCA ?",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 07:46:47 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 1,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "berani nangkep pisau jatuh? serok $bmri di rp4.190. chartnya lagi downtrend parah dari puncaknya. semoga mantul di area support sini ya!  #aplikasiajaib #bmri #ihsg",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 14:53:28 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "penggerak ihsg pagi ini oleh saham $BYAN",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 16 02:15:44 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 2,
+      "Retweet Count": 1,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Emiten kebanggaan anak 1qos\n\n$hmsp siapa yg jorokin gengs",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 15 07:47:56 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 6,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "wah, ada yang haka $bmri di rp4.160 nih. nyoba nangkap rebound ya? chartnya masih bearish kuat. jaga money management!  #aplikasiajaib #bmri #ihsg",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 14:54:14 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "RKAB tidak di setujui maka  gak bisa nambang, gak ada produksi,  gak ada jualan, gak ada laba,\n\nJadi Ada peluang $BYAN terus melemah,\n\nMimpi basah retail kalo $BYAN bisa ke 2.700\n\nJadi harga nya = tawaran haji isam",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 15 13:24:16 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 235,
+      "Retweet Count": 27,
+      "Reply Count": 24,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Salah satu saham yang menjadi pemberat sampai IHSG ambrol -111 poin hari ini\n\n$BYAN juga -11%\n\nBanyak angka 1 \n\nWalaupun sudah turun banyak, tapi masih jauh dari tawaran Haji Isam di kisaran Rp 2500-an",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 14 05:29:23 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 22,
+      "Retweet Count": 2,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "SENTIMEN IHSG HARI INI (23/9/2026)\nIHSG kemarin ambruk 1,69% ke 6.277, dengan 556 saham melemah dari 823 konstituen. Hari ini level psikologis 6.200 sedang diuji.\nIni 5 sentimen POSITIF & 5 NEGATIF yang wajib kamu tau \n#IHSG #SahamHariIni #InvestasiSaham",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 23 00:24:33 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 11,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "4. Rekomendasi MNC Sekuritas hari ini:\nBuy on weakness: $BBRI $TPIA\nTrading buy: $AMRT $PGAS",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 23 00:26:53 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Warga +62, merapat! \n\nBuilt for Southeast Asia, we’re bringing some of Indonesia’s biggest upcoming moments to Fuyo:\n\n FIFA ASEAN Cup\n The Weeknd Jakarta\n Indonesian Grand Prix\n\n GIVEAWAY: Repost this tweet. In the comments, tag 3 friends + drop your Fuyo MPC wallet!",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 14 09:59:56 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 21,
+      "Retweet Count": 11,
+      "Reply Count": 9,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "@Fuyomarkets can you make prediction market for big bank like $BBCA indonesia price end 2026 ?? Pls add other stock don't just index",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 14 11:21:31 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 2,
+      "Retweet Count": 0,
+      "Reply Count": 2,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "saham $BYAN langsung ara njirrr",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 18 02:00:40 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 70,
+      "Retweet Count": 3,
+      "Reply Count": 4,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "RKAB $BYAN tidak di setujui, \n \nRKAB persetujuan nya di keluarkan oleh kementerian Mas Bahlil Ganteng kan?\n\nngeri kali cara main mereka",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 15 01:01:24 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 634,
+      "Retweet Count": 147,
+      "Reply Count": 95,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Data aktivitas asing tengah hari 28 September 2026:   \n\n- Net jual asing -Rp129,63 Miliar  \n- $PTBA, $PEGE, $BBRI jadi top net beli asing",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 05:52:07 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 22,
+      "Retweet Count": 0,
+      "Reply Count": 3,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Untuk Kalian para milenial dan genZ,\n\nMending beli rumah ?\nAtau\nMending sewa aja ?",
+      "Sentiment": NaN,
+      "Tweet Date": "Sun Sep 27 01:05:00 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 134,
+      "Retweet Count": 29,
+      "Reply Count": 170,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Kalo blm py rmh & blm berkeluarga sewa Apartemen/kost. Kalo berkeluarga kontrak dulu. Usahakan IN THIS EKONOMI JGN KPR, krn ada kemungkinan bunga naik trs. Atau cari rmh second/bekas atau cari rmh LELANG (hrs py kenalan ordal di $BBRI krn paling byk tuh Bank rmh sitaan)",
+      "Sentiment": NaN,
+      "Tweet Date": "Sun Sep 27 01:46:19 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "$BBCA langsung ARA? Klo JP Morgan/Temasek ambil sebagian besar saham Hartono di harga tinggi wkk",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 09:13:05 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Pasca bikin base, $BBRI failed rally. Ini indikasi bahwa seller lebih dominan daripada buyer. Jika harga tertahan di key level, kita bisa mengambil kesimpulan bahwa 'koreksi sehat' sedang terjadi.\n\nUntuk sementara waktu, kita perlu menunggu bagaimana market akan bereaksi di sana.",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 14 01:59:56 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 4,
+      "Retweet Count": 2,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Manajer investasi lagi melirik saham apa?",
+      "Sentiment": NaN,
+      "Tweet Date": "Sat Sep 26 12:53:42 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 1,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Namun, strategi manajer investasi tidak selalu searah.",
+      "Sentiment": NaN,
+      "Tweet Date": "Sat Sep 26 12:53:44 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Schroder Dana Prestasi Plus menunjukkan indikasi akumulasi $BBCA dan $MYOR, sedangkan Schroder Dana Prestasi justru mengurangi posisi keduanya. Artinya, satu nama pengelola pun bisa punya strategi berbeda untuk setiap produknya.",
+      "Sentiment": NaN,
+      "Tweet Date": "Sat Sep 26 12:53:45 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "$BYAN \n\nBELI SAAT BERITA KELUAR. \n\nSIMPEL BANGET.",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 16 02:07:30 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 41,
+      "Retweet Count": 2,
+      "Reply Count": 2,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "10 besar saham yg terbuang si periode 1 Agustus s/d 17 September 2026\n\nSaham lo ada disini gak\n\n$tpia\n$dewa\n$bull\n\nPaling gede buangan 2 5T",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 17 12:03:36 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 15,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "2. Level psikologis 6.300 jadi batas bawah kritis hari ini\n→ Kalau jebol, ruang rebound terbatas ke 6.400 bisa tertutup",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 00:38:29 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "3.Asing masih net sell Rp672 miliar pada perdagangan Selasa lalu, dengan $BBRI jadi saham yang paling banyak dilepas asing",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 00:38:30 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Nabung di $BBCA malah amsyongg",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 03:32:24 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "$bbri sudah invalid..  \nreadjustment  \nop 1 ga boleh sentuh 3080  \n\nop 2  ga boleh sentuh 3130\n\n  or else,  junaammm....",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 23 02:30:54 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Jika rumor ini benar, masuk diakal $BBCA akan ke sana….",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 07:41:48 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 50,
+      "Retweet Count": 5,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Papan prediksi Indonesia semakin ramai. \n\nDari saham-saham yang kita pantau hingga tim, balapan, dan artis yang kita ikuti, kini ada lebih banyak lagi yang bisa diprediksi di Fuyo.\n\n Di mana $BBCA dan $TLKM akan ditutup pada 2026?\n Akankah $GOTO lolos dari batas bawah IDR",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 16 10:00:00 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 15,
+      "Retweet Count": 4,
+      "Reply Count": 2,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Serookkk $BMRI lagi ahh.. lumayan lagi turun di 4150",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 23 04:20:59 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Apakah akuisisi $BYAN salah satu balas budi",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 17 16:38:08 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 3,
+      "Retweet Count": 3,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Akhir nya BI tahan suku bunga.. perbankan ijo tipis, lumayan sempet nyerok $BMRI lagi di harga Rp4150 hehehe",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 23 15:29:57 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "$BBCA juga mau kena demutualisasi?",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 13:34:00 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "The $BYAN story has become much more interesting, and frankly much more uncomfortable from a market-governance perspective, because the sequence of events now illustrates, in a way that is difficult for investors to ignore, just how much economic value in Indonesia’s",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 18 10:55:53 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 257,
+      "Retweet Count": 88,
+      "Reply Count": 9,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "keputusan berat, jualan $bbca di rp6.275. chartnya longsor terus dari puncaknya, cash is king dulu deh.  #aplikasiajaib #bbca #ihsg",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 14:51:49 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 5,
+      "Retweet Count": 5,
+      "Reply Count": 5,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Data foreign activity mid-day 15 September:\n\n- Net foreign sell -Rp383,65 Miliar\n- $BUMI, $TLKM, $ANTM jadi top net foreign buy",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 15 06:16:52 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 8,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "ahok heran kenapa tidak danantara yang beli saham $BYAN :\n- kenapa malah haji isam\n- kalau bisa dibeli murah dengan cara rkab tidak terbit dengan harga diskon 80 persen\n- kenapa bukan danantara yang ambil ya\n- kalau dia jadi presiden sih pasti perintahkan danantara yang beli\n-",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 17 14:38:06 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 2116,
+      "Retweet Count": 492,
+      "Reply Count": 119,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Jika $BBCA ke sana, maka $IHSG ke situ",
+      "Sentiment": NaN,
+      "Tweet Date": "Sat Sep 26 01:48:37 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 38,
+      "Retweet Count": 0,
+      "Reply Count": 4,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "tajam instingnya, serok $bbca pas longsor di rp6.175. sekarang harganya udah mantul dikit ke rp6.250. lanjut hold apa tp kilat?  #aplikasiajaib #bbca #tradingindonesia",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 14:58:13 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Haji Isam lewat perusahaannya, PT Jhonlin Baratama telah meneken perjanjian jual beli saham bersyarat dengan pengendali $BYAN Low Tuck Kwong dan Elaine Low pada 16 September 2026\n\nHaji Isam akan mengambil 10.000.000.500 atau sepuluh miliar lima ratus saham biasa BYAN\n\nJumlah tsb",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 18 00:37:28 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 58,
+      "Retweet Count": 13,
+      "Reply Count": 3,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "That's why telepon umum penting. Tapi udah mah ga dipelihara $TLKM terus divandal sama warlok-warlok yg jahil.",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 21 11:43:11 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 1,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Karena lebih mudah gerak.\n\nCoba itu kayak $BBCA dsb.nya, \nlebih susah ARAnya",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 03:10:37 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 10,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Bgsdd... siapa ini yg nyebarin hoax haji isam otw akuisisi $BBCA?  Ga sekalian aja haji isam otw akuisisi NVIDIA? \n\nRutinitas kalo market lg busuk ya begini, banyak isu bikinan orang stresss",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 09:42:25 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 65,
+      "Retweet Count": 14,
+      "Reply Count": 14,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "SENTIMEN IHSG HARI INI (21/9/2026)\nIHSG pekan lalu melemah 1,53% ke 6.441. Hari ini diproyeksi bergerak 6.400-6.535, masih dibayangi koreksi tapi ada peluang rebound.\nIni 5 sentimen POSITIF & 5 NEGATIF yang wajib kamu tau \n#IHSG #SahamHariIni #InvestasiSaham",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 21 01:23:18 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "3. Aktivitas pasar melemah di semua lini pekan lalu:\nNilai transaksi -6,95%, frekuensi -14,73%, volume -20,71%\n→ Sinyal investor makin wait-and-see",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 21 01:23:24 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "4. $TLKM turun 1,16% masih didominasi tekanan jual (wave c), $BBCA turun 0,79% ke bawah MA60 → dua big cap ini masih dalam tekanan",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 21 01:23:25 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Lagi dipalak H Isam. RKAB Bayan gak diterbitkan ESDM, sampe nyatakan force majeur",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 15 02:42:49 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 602,
+      "Retweet Count": 138,
+      "Reply Count": 21,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Sebentar lg rezim ini jatuh, tinggal $BYAN kuat2an aja dgn rezim terkutuk ini",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 15 12:44:30 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 14,
+      "Retweet Count": 1,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Sering banget ya #HoaxBBCA muncul, salah satunya kabar Haji Isam akuisisi BCA $BBCA, jangan gampang termakan isu",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 16:56:25 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Wah turun terus yah .. ingat yah .. kl jelek, beli yg defensif aja",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 05:36:22 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 42,
+      "Retweet Count": 3,
+      "Reply Count": 13,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "$TLKM defensif tapi IHSG ijo dia tetep merah, IHSG merah dia makin junam",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 10:23:17 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "$BYAN langsung ARA",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 18 01:58:53 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 14,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Llegaron 5 nuevos CEDEARs de ETFs al mercado argentino.\n\nY hay una novedad grande: por primera vez podés tener exposición a soja, maíz y commodities desde tu cuenta local y en pesos. \n\nTe contamos",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 16 19:12:37 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 11,
+      "Retweet Count": 1,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "$BBCA y  $BBAX\n\n$BBCA mereplikasi sekitar 85% dari bursa Kanada, dengan bank-bank, perusahaan minyak, perusahaan pertambangan, dan Shopify.\n\n$BBAX menambah eksposur ke Asia-Pasifik yang berkembang tanpa Jepang, dengan bobot kuat dari Australia.",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 16 19:12:38 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 2,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Moment yang banyak disesalin orang $BBCA ke 4.890 dan sekarang di 6.000",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 21 10:53:30 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 1,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "IHSG Rebound +0,64%, GOTO Hapus Saham Buyback Rp2,1 T!\n\nIHSG sesi I menguat +0,64% ke 6.317, dengan nilai transaksi Rp6,06 T dan volume 189 juta lot. Namun, asing masih mencatat outflow Rp335 M di pasar ekuitas, terutama dari $BBRI Rp128 M dan $BMRI Rp69 M.\n\n Sektor Basic",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 23 06:17:18 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Sebar luas nih, berita Haji Isam mau ngambil saham BCA $BBCA keluarga Hartono itu bener-bener #HoaxBBCA, cek dulu sebelum percaya",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 14:58:31 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "MULAI BEROPERASI LIMA CEDEAR ETF BARU DI BYMA\n\n Banco Comafi menerbitkan alternatif untuk menambah eksposur ke Kanada, Asia berkembang, dan komoditas:\n\n $BBCA — JPMorgan BetaBuilders Canada ETF. Saham besar dan menengah Kanada. Rasio 20:1.\n\n $BBAX — JPMorgan",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 17 01:23:16 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 37,
+      "Retweet Count": 6,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Coba pasang antrean jual $BBCA di harga Rp7.000. Buat saham kelas blue chip, yang penting itu punya target yang jelas dan terukur, nggak usah keburu-buru yang penting konsisten dapet hasilnya #AplikasiAjaib #porto",
+      "Sentiment": NaN,
+      "Tweet Date": "Sun Sep 27 14:57:56 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "IHSG naik atau turun, saham $TLKM tetap turun\n\nDiiris rapi pelan-pelan\n\nAntisipasi tanggal 28 September 2026?",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 04:00:48 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 49,
+      "Retweet Count": 7,
+      "Reply Count": 3,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Data aktivitas asing tengah hari 25 September 2026:  \n\n- Net jual asing -Rp355,78 Miliar \n- $BBCA, $TPIA, $PTBA jadi top net beli asing",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 05:11:07 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 11,
+      "Retweet Count": 1,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Djarum, tolong jaga $BBCA",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 19:34:08 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Disaring dulu infonya, Haji Isam dan BCA $BBCA lagi heboh karena #HoaxBBCA yang diangkat akun-akun pemburu engagement",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 15:18:37 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Saham rokok pada masuk zona demand, choose your fighter carefully\n$GGRM $HMSP $WIIM",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 15:41:18 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Manfaatin pergerakan harga $BBCA di level 6.250 pakai fitur harian. Apapun strateginya, yang penting tetep rasional dan patuh sama trading plan awal #AplikasiAjaib #porto",
+      "Sentiment": NaN,
+      "Tweet Date": "Sun Sep 27 14:16:20 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "terpantau saham $BYAN penyumbang merahnya ihsg hari ini",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 21 02:53:59 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 19,
+      "Retweet Count": 2,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Data aktivitas asing siang hari 21 September 2026:\n\n- Net jual asing -Rp216,2 Miliar\n- $COIN, $TPIA, $TINS jadi top net beli asing",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 21 05:27:57 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 18,
+      "Retweet Count": 1,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "IHSG -1%, Asing Outflow Rp987 Miliar, CPO Justru Menguat!\n\nSesi 1, IHSG terkoreksi -1,06% ke 6.307 dengan nilai transaksi Rp6,11 triliun. Investor asing mencatat net outflow Rp987 miliar, terutama dari $BMRI Rp237 miliar dan $BBRI Rp90,6 miliar.\n\nDi tengah tekanan market,",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 06:20:48 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Konten diatas dialami langsung oleh $unvr",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 21 23:58:22 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 3,
+      "Retweet Count": 1,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Semoga berjodoh dengan perusahaan dengan ticket saham $TPIA ya Tuhan \n\nIngin meningkatkan jenjang karir sekaligus dengan kecerdasan & pengalaman kerja bisa membawa dampak positif untuk perusahaan & diri sendiri",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 23 11:48:00 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "• Ahok mempertanyakan mengapa bukan Danantara yang membeli saham $BYAN.\n\n• Ia menilai saham bisa diperoleh dengan harga murah jika RKAB tidak diterbitkan.\n\n• Menurut Ahok, harga aset bahkan bisa terdiskon hingga 80%.\n\n• Jika dirinya menjadi presiden, ia mengaku akan",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 18 06:26:06 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 168,
+      "Retweet Count": 41,
+      "Reply Count": 19,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "SENTIMEN IHSG HARI INI (28/9/2026)\nIHSG pekan lalu anjlok 3,09%, Jumat ditutup di 6.241. Hari ini aturan harga saham minimum Rp1 mulai berlaku dan analis proyeksikan IHSG masih volatil.\nIni sentimen POSITIF & NEGATIF yang wajib kamu tau \n#IHSG #SahamHariIni #InvestasiSaham",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 01:07:16 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "SENTIMEN POSITIF\n1. Peluang technical rebound jangka pendek: kalau area support bertahan, IHSG berpeluang menguat ke 6.320, lanjut ke 6.370-6.410\n Analis mengingatkan ini masih rebound teknikal, belum konfirmasi tren naik",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 01:07:17 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "2. Rekomendasi trading hari ini dari MNC Sekuritas:\nBuy on weakness: $COIN\nTrading: $INDF $HMSP $ENRG",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 01:07:19 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "¿Te los perdiste?   5 nuevos CEDEARs de ETFs ya disponibles en PPI",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 14:48:42 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 1,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "$BBCA · Canadá  $BBAX · Asia-Pacífico ex-Japón  $GSG · Commodities  $CORN · Maíz  $SOYB · Soja",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 14:49:17 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "$GMK $UNVR $CCCS Feel free to contact my stockbroker via WhatsApp: https://shopsho.ws/vHjgSL \nI’ve been following his trades, and the returns this year have been impressive. He charges a commission of 2%–5% on the profits from each stock trade.",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 21:18:50 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "INDONESIA trying to bring illegal cigarette makers under regulation. This would probably threaten $WIIM.JK more than $HMSP.JK but $HMSP has sold off more. $WIIM.JK enjoys a special tax-advantaged status at their current size under current regulations. Curious about your thoughts",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 14:31:41 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 3,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Sesi 1 asing net sell Rp355B, tapi $BBCA malah tetep dikumpulin dan harganya naik ke 6.250. Memang saham berkualitas selalu punya daya tarik pas bursa lagi dinamis  #AplikasiAjaib #porto",
+      "Sentiment": NaN,
+      "Tweet Date": "Sun Sep 27 13:54:31 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Ada apa dengan saham $BBRI?\n\nTumben -3%\n\nAda benteng Takeshi di level 3190-3200. Rada serem kalau ambrol",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 22 03:51:20 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 81,
+      "Retweet Count": 10,
+      "Reply Count": 12,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "kemarin kalo $BYAN  tidak di lepas, maka ijin RKAB tidak di terbitkan, \n\nnah kalo $BBCA tidak mau di lepas, mereka ancam nya pakai ijin apa ya?",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 07:01:52 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 1331,
+      "Retweet Count": 213,
+      "Reply Count": 88,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Banyak yang mikir Low dipaksa jual $BYAN ke Haji Isam dengan sandra RKAB. Tapi, bagaimana jika sebaliknya, Low justru butuh bekingan untuk dapat persetujuan itu?",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 21 04:49:17 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Beberapa emiten terjadi pembelian kuat oleh orang kuat\n\n$bris\n$hmsp\n\nDll",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 04:10:26 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 14,
+      "Retweet Count": 1,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Narasi Kripto Mendatang\n\nSaham Berpasangan Kripto \nNFT Berpasangan Kripto \nMerek Mewah Berpasangan Kripto",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 22 13:56:43 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 175,
+      "Retweet Count": 16,
+      "Reply Count": 15,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Ketika dipasangkan $BBCA atau $BBNI ser?",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 22 13:57:39 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 2,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Jadi inget $BBCA mau di backdoor Blackrock",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 10:54:39 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 26,
+      "Retweet Count": 1,
+      "Reply Count": 2,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "tunggu $BBCA 5800-an aja kali ya..",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 22 07:34:47 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 3,
+      "Retweet Count": 0,
+      "Reply Count": 2,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Gaes, \nkalian betul, dia gak mungkin akuisisi BBCA semuanya, \ntapi kalo dapat harga diskon dengan porsi sedikit aja, itu udah lumayan banget, \n\n $BYAN kan gak semua di ambil,",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 10:01:02 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 96,
+      "Retweet Count": 4,
+      "Reply Count": 8,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "INFO\nTIMPA INDONESIA WIN! \nLAWAN 11 ORANG GABIKIN KING INDO GENTAR\nFULL TIME 1-0 FIX",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 13:41:22 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "king indo kalo gak ada paes ADUH KASIAN DEHHH",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 13:00:45 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 7,
+      "Retweet Count": 1,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Bocil a day in my life \nhttps://cdn2.vidy.my/ZeaEo8\n\nhttps://vidy.my/1T2256.mp4\n\nhttps://cdn.vidy.my/N6OPcK\n\nhttps://cdn2.vidy.vu/4j1waH.mp4\n\nYahoo paes hayu Justin hubner layak king indo cleo soyakinbisa ole remeny malaysia",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 13:30:48 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "sehari dalam hidupku \nhttps://cdn2.vidy.my/ZeaEo8\n\nhttps://vidy.my/1T2256.mp4\n\nhttps://cdn.vidy.my/N6OPcK\n\nhttps://cdn2.vidy.vu/4j1waH.mp4\n\n#bocil #bocilmelayu #bocilviral\n\njustin hubner paes yahoo bergson king indo morinaga soya malaysia",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 12:57:16 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 1,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Data aktivitas asing tengah hari 28 September 2026:   \n\n- Net jual asing -Rp129,63 Miliar  \n- $PTBA, $PEGE, $BBRI jadi top net beli asing",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 05:52:07 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 22,
+      "Retweet Count": 0,
+      "Reply Count": 3,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Asyuu rusak\nUlah siapa nih?\n\n$BBRI",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 11:41:40 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 1,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "harga $BBCA tetap gak gerak walopun ada rumor mau di akuisisi haji Isam, \n \nrumor apa dong yang bisa bikin $BBCA langsung ARA ?",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 08:07:00 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 106,
+      "Retweet Count": 6,
+      "Reply Count": 20,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "buy the dip! serok $bbri di rp3.180 pas harganya lagi down. chartnya emang lagi nyungsep, tapi berani cicil beli buat jangka panjang.  #aplikasiajaib #bbri #investasi",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 15:00:52 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Haji isam akuisisi $BYAN bisa mengancam $MAHA ?",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 22 04:40:18 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Untuk Kalian para milenial dan genZ,\n\nMending beli rumah ?\nAtau\nMending sewa aja ?",
+      "Sentiment": NaN,
+      "Tweet Date": "Sun Sep 27 01:05:00 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 134,
+      "Retweet Count": 29,
+      "Reply Count": 170,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Kalo blm py rmh & blm berkeluarga sewa Apartemen/kost. Kalo berkeluarga kontrak dulu. Usahakan IN THIS EKONOMI JGN KPR, krn ada kemungkinan bunga naik trs. Atau cari rmh second/bekas atau cari rmh LELANG (hrs py kenalan ordal di $BBRI krn paling byk tuh Bank rmh sitaan)",
+      "Sentiment": NaN,
+      "Tweet Date": "Sun Sep 27 01:46:19 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "$BBRI loh kog ngloyoooo boss?",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 22 06:54:08 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 5,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Jika $BBCA ke sana, maka $IHSG ke situ",
+      "Sentiment": NaN,
+      "Tweet Date": "Sat Sep 26 01:48:37 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 38,
+      "Retweet Count": 0,
+      "Reply Count": 4,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Manajer investasi lagi melirik saham apa?",
+      "Sentiment": NaN,
+      "Tweet Date": "Sat Sep 26 12:53:42 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 1,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Namun, strategi manajer investasi tidak selalu searah.",
+      "Sentiment": NaN,
+      "Tweet Date": "Sat Sep 26 12:53:44 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Schroder Dana Prestasi Plus menunjukkan indikasi akumulasi $BBCA dan $MYOR, sedangkan Schroder Dana Prestasi justru mengurangi posisi keduanya. Artinya, satu nama pengelola pun bisa punya strategi berbeda untuk setiap produknya.",
+      "Sentiment": NaN,
+      "Tweet Date": "Sat Sep 26 12:53:45 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "kalau emang nantinya $BBCA bisa diakuisisi dengan kecurangan, artinya gak ada yg bisa menjamin investasi di indonesia bakal aman, siapapun itu. Perusahaan sebesar itu aja bisa ditukar guling, apalagi perusahaan yg lebuh kecil. Kabur aja dah investor",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 13:05:17 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 13,
+      "Retweet Count": 3,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "siap-siap TEXTILE  Industry Revitalization !",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 22 13:21:47 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 135,
+      "Retweet Count": 8,
+      "Reply Count": 16,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Baca: akrobat selamatkan SRIL sehingga NPL Himbara dan BPD tidak jeblok parah?",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 22 14:42:57 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 6,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "$BBRI tadi udah jeblok bang",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 22 15:45:21 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 2,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "AKHIRNYA RKAB 2026 $BYAN DISETUJUI \n\nSebelumnya (laporan 14 September 2026): tiga anak usaha Bayan, yaitu PT Tiwa Abadi (TA), PT Tanur Jaya (TJ), dan PT Fajar Sakti Prima (FSP), memberitahukan force majeure atas kewajiban pasokan batubara ke pelanggan karena persetujuan",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 04:53:49 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 16,
+      "Retweet Count": 3,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "SENTIMEN IHSG HARI INI (21/9/2026)\nIHSG pekan lalu melemah 1,53% ke 6.441. Hari ini diproyeksi bergerak 6.400-6.535, masih dibayangi koreksi tapi ada peluang rebound.\nIni 5 sentimen POSITIF & 5 NEGATIF yang wajib kamu tau \n#IHSG #SahamHariIni #InvestasiSaham",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 21 01:23:18 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "3. Aktivitas pasar melemah di semua lini pekan lalu:\nNilai transaksi -6,95%, frekuensi -14,73%, volume -20,71%\n→ Sinyal investor makin wait-and-see",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 21 01:23:24 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "4. $TLKM turun 1,16% masih didominasi tekanan jual (wave c), $BBCA turun 0,79% ke bawah MA60 → dua big cap ini masih dalam tekanan",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 21 01:23:25 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Setelah menyelesaikan 5 swing naik wave a merah di 3440, posisi harga saham #BBRI saat ini sedang menyelesaikan wave b merah sampai ke area 2990 - 2883\n\nJadi masih ada peluang harga sahamnya bisa kembali naik untuk menyelesaikan wave c merah dari wave ....",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 23 10:07:32 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 11,
+      "Retweet Count": 2,
+      "Reply Count": 2,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Tapi bagaimana jika harga saham $BBRI masih lanjut tertekan turun sampai ke bawah area 2990 - 2883?\n\nPembahasan selengkapnya di sini",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 23 10:07:32 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Konten diatas dialami langsung oleh $unvr",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 21 23:58:22 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 3,
+      "Retweet Count": 1,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Kemarin $BAYAN sekayang $BBCA, Walaupun masih wacana sih ada gila-gilanya wkwkw",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 08:34:21 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Data aktivitas asing siang hari 21 September 2026:\n\n- Net jual asing -Rp216,2 Miliar\n- $COIN, $TPIA, $TINS jadi top net beli asing",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 21 05:27:57 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 18,
+      "Retweet Count": 1,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "That's why telepon umum penting. Tapi udah mah ga dipelihara $TLKM terus divandal sama warlok-warlok yg jahil.",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 21 11:43:11 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 1,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "terpantau saham $BYAN penyumbang merahnya ihsg hari ini",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 21 02:53:59 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 19,
+      "Retweet Count": 2,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "wah, ada yang haka $bmri di rp4.160 nih. nyoba nangkap rebound ya? chartnya masih bearish kuat. jaga money management!  #aplikasiajaib #bmri #ihsg",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 14:54:14 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Ya Allah bagaimana caranya hamba bisa sembuh dari penyakit antek neolib ini",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 02:53:42 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 101,
+      "Retweet Count": 14,
+      "Reply Count": 9,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "lahir di negeri ini sudah tepat bung, apalah arti menjadi bilyuner kalau tidak memiliki akhlak",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 04:05:28 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "The AKHLAK we’re talking in this country is $BYAN takeover righr?",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 04:11:24 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 2,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "$BBCA juga mau kena demutualisasi?",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 13:34:00 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "trading plan cakep! beli $bmri rp4.100, set tp di rp4.310 dan sl di rp3.900. nangkap rebound gini emang wajib disiplin.  #aplikasiajaib #bmri #tradingindonesia",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 14:53:53 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "IHSG -1%, Asing Outflow Rp987 Miliar, CPO Justru Menguat!\n\nSesi 1, IHSG terkoreksi -1,06% ke 6.307 dengan nilai transaksi Rp6,11 triliun. Investor asing mencatat net outflow Rp987 miliar, terutama dari $BMRI Rp237 miliar dan $BBRI Rp90,6 miliar.\n\nDi tengah tekanan market,",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 06:20:48 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "ritel unyu nih bandel2 banget ya, \n\nmasih ada loh yang beli $GOTO di harga 43,\n\nplis  cek  dulu orderbook nya, \nantrian ARB nya 1 Milyar lot itu.",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 02:59:01 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 102,
+      "Retweet Count": 3,
+      "Reply Count": 19,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "kenapa $GOTO ?\n\nteman nya jawab, \nkan itu produk yang pakai sehari2, \nitu yang kamu pakai gejok , tokped, gopay later itu kan produk nya $GOTO, ,hahaha",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 07:49:46 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 4,
+      "Retweet Count": 0,
+      "Reply Count": 2,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "$UNVR moment",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 13:36:56 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "IHSG Rebound +0,64%, GOTO Hapus Saham Buyback Rp2,1 T!\n\nIHSG sesi I menguat +0,64% ke 6.317, dengan nilai transaksi Rp6,06 T dan volume 189 juta lot. Namun, asing masih mencatat outflow Rp335 M di pasar ekuitas, terutama dari $BBRI Rp128 M dan $BMRI Rp69 M.\n\n Sektor Basic",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 23 06:17:18 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "tajam instingnya, serok $bbca pas longsor di rp6.175. sekarang harganya udah mantul dikit ke rp6.250. lanjut hold apa tp kilat?  #aplikasiajaib #bbca #tradingindonesia",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 14:58:13 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "¿Te los perdiste?   5 nuevos CEDEARs de ETFs ya disponibles en PPI",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 14:48:42 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 1,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "$BBCA · Canadá  $BBAX · Asia-Pacífico ex-Japón  $GSG · Commodities  $CORN · Maíz  $SOYB · Soja",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 14:49:17 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Nabung di $BBCA malah amsyongg",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 03:32:24 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Menarik melihat rotasi foreign inflow ke sektor energi ($PTBA) dan big banks ($BBRI) di tengah yield shock global. Minyak $100+ memang jadi katalis defensif kuat buat emiten komoditas domestik menahan outflow makro.",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 13:12:54 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "CUAN Haji Isyam di $BYAN dpt harga diskon diatas 50%",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 23 00:23:19 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Koyok tuku $BYAN naware",
+      "Sentiment": NaN,
+      "Tweet Date": "Sat Sep 26 02:25:57 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Coba pasang antrean jual $BBCA di harga Rp7.000. Buat saham kelas blue chip, yang penting itu punya target yang jelas dan terukur, nggak usah keburu-buru yang penting konsisten dapet hasilnya #AplikasiAjaib #porto",
+      "Sentiment": NaN,
+      "Tweet Date": "Sun Sep 27 14:57:56 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Manfaatin pergerakan harga $BBCA di level 6.250 pakai fitur harian. Apapun strateginya, yang penting tetep rasional dan patuh sama trading plan awal #AplikasiAjaib #porto",
+      "Sentiment": NaN,
+      "Tweet Date": "Sun Sep 27 14:16:20 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "INDONESIA trying to bring illegal cigarette makers under regulation. This would probably threaten $WIIM.JK more than $HMSP.JK but $HMSP has sold off more. $WIIM.JK enjoys a special tax-advantaged status at their current size under current regulations. Curious about your thoughts",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 14:31:41 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 3,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "BREAKING NEWS:\n\n$BYAN\n\nBayan telah menjadi kosa kata baru bahasa Indonesia.\n\nContoh penggunaan: “Kamu jangan macam2 sama saya, nanti saya BAYAN kan!”",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 22 10:36:17 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Perhtian para pelaku pasar hari ini tertju pd Gedung Bank Indonesia.\n​Gelrn Rapat Dewan Gubernur (RDG) BI resmi dimlai utk mentukn arh BI-Rate. Konsensus pasar memprkrkn BI msh akn mnhan suku bunga di level 5,75%.\n​Mgp keptusn kali ini sngt krusial bgi IHSG & sektor perbankn?",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 22 01:12:04 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Di satu sisi, langkah The Fed kian agresif memicu penguatan Dolar AS yang menekan pergerakan nilai tukar Rupiah.\n​Di sisi lain, menaikkan BI-Rate terlalu cpt bisa menahan laju pertumbuhan kredit domestik.",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 22 01:12:05 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Apa artinya bgi sham Watchlist kita?\n• Perbankn (Big Caps): Suku bunga yg dithan di 5,75% menjg Cost of Funds (CoF) tdk membgkk, shgga marjin bunga bersih (NIM) emiten sprt $BBCA & $BBRI tetap trjg tebal.\n• Sektor Riil & Consumer: Mnghdri bban bunga yg mkn tinggi bgi konsmen",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 22 01:12:06 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "SENTIMEN IHSG HARI INI (28/9/2026)\nIHSG pekan lalu anjlok 3,09%, Jumat ditutup di 6.241. Hari ini aturan harga saham minimum Rp1 mulai berlaku dan analis proyeksikan IHSG masih volatil.\nIni sentimen POSITIF & NEGATIF yang wajib kamu tau \n#IHSG #SahamHariIni #InvestasiSaham",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 01:07:16 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "SENTIMEN POSITIF\n1. Peluang technical rebound jangka pendek: kalau area support bertahan, IHSG berpeluang menguat ke 6.320, lanjut ke 6.370-6.410\n Analis mengingatkan ini masih rebound teknikal, belum konfirmasi tren naik",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 01:07:17 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "2. Rekomendasi trading hari ini dari MNC Sekuritas:\nBuy on weakness: $COIN\nTrading: $INDF $HMSP $ENRG",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 01:07:19 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Wah turun terus yah .. ingat yah .. kl jelek, beli yg defensif aja",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 05:36:22 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 42,
+      "Retweet Count": 3,
+      "Reply Count": 13,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "$TLKM defensif tapi IHSG ijo dia tetep merah, IHSG merah dia makin junam",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 10:23:17 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Saham rokok pada masuk zona demand, choose your fighter carefully\n$GGRM $HMSP $WIIM",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 15:41:18 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Sering banget ya #HoaxBBCA muncul, salah satunya kabar Haji Isam akuisisi BCA $BBCA, jangan gampang termakan isu",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 16:56:25 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "$GMK $UNVR $CCCS Feel free to contact my stockbroker via WhatsApp: https://shopsho.ws/vHjgSL \nI’ve been following his trades, and the returns this year have been impressive. He charges a commission of 2%–5% on the profits from each stock trade.",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 21:18:50 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Setelah menyelesaikan wave I merah di 4000, posisi harga saham #BBNI saat ini sedang menyelesaikan wave II merah di area 3545 - 3437 yang sudah tercapai dari minggu lalu",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 10:12:23 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 6,
+      "Retweet Count": 0,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Jadi masih ada peluang harga sahamnya bisa kembali naik untuk menyelesaikan wave III merah dari wave (c) biru dari wave ..\n\nTapi bagaimana jika harga saham $BBNI masih lanjut tertekan turun sampai ke bawah area 3545 - 3437?\n\nPembahasan selengkapnya di sini",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 28 10:12:24 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Sesi 1 asing net sell Rp355B, tapi $BBCA malah tetep dikumpulin dan harganya naik ke 6.250. Memang saham berkualitas selalu punya daya tarik pas bursa lagi dinamis  #AplikasiAjaib #porto",
+      "Sentiment": NaN,
+      "Tweet Date": "Sun Sep 27 13:54:31 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Djarum, tolong jaga $BBCA",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 19:34:08 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "keputusan berat, jualan $bbca di rp6.275. chartnya longsor terus dari puncaknya, cash is king dulu deh.  #aplikasiajaib #bbca #ihsg",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 14:51:49 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 5,
+      "Retweet Count": 5,
+      "Reply Count": 5,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "tambahan kuota 20 juta ton ini harganya setara 30% saham $BYAN (yang dibeli secara paksa dengan harga diskon)",
+      "Sentiment": NaN,
+      "Tweet Date": "Sun Sep 27 13:35:23 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "$bbri sudah invalid..  \nreadjustment  \nop 1 ga boleh sentuh 3080  \n\nop 2  ga boleh sentuh 3130\n\n  or else,  junaammm....",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 23 02:30:54 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Pasang antrean beli $BBRI di harga Rp3.100. Buat investasi jangka panjang, manfaatin penyesuaian harga di saham blue chip begini emang strategi yang cukup rasional, asal tetep masuk secara bertahap  #AplikasiAjaib #porto",
+      "Sentiment": NaN,
+      "Tweet Date": "Sun Sep 27 14:39:42 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Disaring dulu infonya, Haji Isam dan BCA $BBCA lagi heboh karena #HoaxBBCA yang diangkat akun-akun pemburu engagement",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 15:18:37 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Sebar luas nih, berita Haji Isam mau ngambil saham BCA $BBCA keluarga Hartono itu bener-bener #HoaxBBCA, cek dulu sebelum percaya",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 14:58:31 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Semoga berjodoh dengan perusahaan dengan ticket saham $TPIA ya Tuhan \n\nIngin meningkatkan jenjang karir sekaligus dengan kecerdasan & pengalaman kerja bisa membawa dampak positif untuk perusahaan & diri sendiri",
+      "Sentiment": NaN,
+      "Tweet Date": "Wed Sep 23 11:48:00 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Oooooohhhhh...... Jd yg nyuruh Cak Imin, trs lwt Wowo bakal nyuruh Pak Haji. Kalo gak mau, nanti kasusnya sm spt saham $BYAN , NGERIK BANGET MAINNYA BTW Cak Imin ada kepentingan apa ya nyuruh WOWO ambil $BBCA ?",
+      "Sentiment": NaN,
+      "Tweet Date": "Fri Sep 25 07:46:47 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 1,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Sejak Menkeu Pak Suhasil diangkat jadi Menkeu Nilai Tukar Rupiah dan Harga saham terus melemah",
+      "Sentiment": NaN,
+      "Tweet Date": "Mon Sep 21 10:14:36 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 791,
+      "Retweet Count": 224,
+      "Reply Count": 115,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "Gmana asing mw percaya rezim, liat cara take over $BYAN, masih anda bela? Pake narasi pribumi?",
+      "Sentiment": NaN,
+      "Tweet Date": "Tue Sep 22 13:12:49 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "berani nangkep pisau jatuh? serok $bmri di rp4.190. chartnya lagi downtrend parah dari puncaknya. semoga mantul di area support sini ya!  #aplikasiajaib #bmri #ihsg",
+      "Sentiment": NaN,
+      "Tweet Date": "Thu Sep 24 14:53:28 +0000 2026",
+      "English Translation": NaN,
+      "Favorite Count": 0,
+      "Retweet Count": 0,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "[SIMULASI MOCK] Kinerja $BBCA kuartal ini luar biasa solid, dividen interim siap ditunggu investor. (Batch stream id #1)",
+      "Sentiment": null,
+      "Tweet Date": "Mon Sep 28 14:43:39 +0000 2026",
+      "English Translation": null,
+      "Favorite Count": 3,
+      "Retweet Count": 2,
+      "Reply Count": 0,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "[SIMULASI MOCK] Sinyal akumulasi asing terlihat masif di $BBRI setelah breakout resistance 3200. (Batch stream id #2)",
+      "Sentiment": null,
+      "Tweet Date": "Mon Sep 28 14:43:39 +0000 2026",
+      "English Translation": null,
+      "Favorite Count": 6,
+      "Retweet Count": 4,
+      "Reply Count": 1,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "[SIMULASI MOCK] Laporan laba bersih $BMRI melesat melampaui konsensus pasar modal. (Batch stream id #3)",
+      "Sentiment": null,
+      "Tweet Date": "Mon Sep 28 14:43:39 +0000 2026",
+      "English Translation": null,
+      "Favorite Count": 9,
+      "Retweet Count": 6,
+      "Reply Count": 2,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "[SIMULASI MOCK] Valuasi $BBNI masih relatif undervalue dibanding perbankan big four lainnya. (Batch stream id #4)",
+      "Sentiment": null,
+      "Tweet Date": "Mon Sep 28 14:43:39 +0000 2026",
+      "English Translation": null,
+      "Favorite Count": 12,
+      "Retweet Count": 8,
+      "Reply Count": 3,
+      "Quote Count": 0
+    },
+    {
+      "Sentence": "[SIMULASI MOCK] Transformasi bisnis data center $TLKM mulai membuahkan hasil positif jangka panjang. (Batch stream id #5)",
+      "Sentiment": null,
+      "Tweet Date": "Mon Sep 28 14:43:39 +0000 2026",
+      "English Translation": null,
+      "Favorite Count": 15,
+      "Retweet Count": 10,
+      "Reply Count": 4,
+      "Quote Count": 0
+    }
+  ]
+}

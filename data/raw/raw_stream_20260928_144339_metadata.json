@@ -1,0 +1,32 @@
+{
+  "ingestion_timestamp": "2026-09-28T14:43:39.087610+00:00",
+  "batch_id": "batch_20260928_144339",
+  "total_records": 211,
+  "mock_records_added": 5,
+  "tickers": [
+    "BBCA",
+    "BBNI",
+    "BBRI",
+    "BMRI",
+    "BYAN",
+    "HMSP",
+    "TLKM",
+    "TPIA",
+    "UNVR"
+  ],
+  "schema_version": "1.0.0",
+  "source_files": [
+    "x_stock_tweets__bbca_or_bbri_or_bmri_or_bbni_or_tlkm_or_asii_or_unvr_or_tpia_or_hmsp_or_byan_since_2026-09-14_until_2026-09-21_2026-09-28.csv",
+    "x_stock_tweets__bbca_or_bbri_or_bmri_or_bbni_or_tlkm_or_asii_or_unvr_or_tpia_or_hmsp_or_byan_since_2026-09-21_until_2026-09-29_2026-09-28.csv"
+  ],
+  "columns": [
+    "Sentence",
+    "Sentiment",
+    "Tweet Date",
+    "English Translation",
+    "Favorite Count",
+    "Retweet Count",
+    "Reply Count",
+    "Quote Count"
+  ]
+}
