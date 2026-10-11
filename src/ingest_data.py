@@ -281,8 +281,59 @@ def main():
         default=10,
         help="Number of mock records to synthesize if --mock-new is set (default: 10)",
     )
+    parser.add_argument(
+        "--crawl",
+        action="store_true",
+        help="Run automated Playwright X crawler before ingesting data",
+    )
+    parser.add_argument(
+        "--crawl-since",
+        type=str,
+        default=None,
+        help="Date filter 'since' for crawler (YYYY-MM-DD)",
+    )
+    parser.add_argument(
+        "--crawl-until",
+        type=str,
+        default=None,
+        help="Date filter 'until' for crawler (YYYY-MM-DD)",
+    )
+    parser.add_argument(
+        "--crawl-max",
+        type=int,
+        default=30,
+        help="Max tweets to crawl if --crawl is enabled (default: 30)",
+    )
 
     args = parser.parse_args()
+
+    if args.crawl:
+        try:
+            from src.crawler.crawler import build_search_url, run_crawler
+            import os
+
+            since_val = args.crawl_since
+            until_val = args.crawl_until
+            today_tag = datetime.now().strftime("%Y-%m-%d")
+            input_dir = Path(args.input_dir)
+            input_dir.mkdir(parents=True, exist_ok=True)
+
+            if since_val and until_val:
+                crawl_out = input_dir / f"x_stock_tweets_since_{since_val}_until_{until_val}_{today_tag}.csv"
+                target_url = build_search_url(since_date=since_val, until_date=until_val)
+            else:
+                crawl_out = input_dir / f"x_stock_tweets_stream_{today_tag}.csv"
+                target_url = os.getenv("TARGET_URL", "https://x.com/home")
+
+            logger.info(f"Triggering automated crawler: {target_url} -> {crawl_out}")
+            run_crawler(
+                target_url=target_url,
+                max_tweets=args.crawl_max,
+                headless=os.getenv("HEADLESS", "true").lower() == "true",
+                output_file=str(crawl_out),
+            )
+        except Exception as e:
+            logger.error(f"Automated crawler encountered error: {e}", exc_info=True)
 
     ingest_data(
         input_dir=Path(args.input_dir),
