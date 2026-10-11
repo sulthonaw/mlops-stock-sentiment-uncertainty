@@ -225,12 +225,16 @@ def ingest_data(
     if output_format in ["csv", "both"]:
         csv_file = output_dir / f"{base_name}.csv"
         meta_file = output_dir / f"{base_name}_metadata.json"
+        canonical_csv = output_dir / "raw_dataset.csv"
         consolidated_df.to_csv(csv_file, index=False, encoding="utf-8")
+        consolidated_df.to_csv(canonical_csv, index=False, encoding="utf-8")
         with open(meta_file, "w", encoding="utf-8") as f:
             json.dump(metadata, f, ensure_ascii=False, indent=2)
         exported_files.append(str(csv_file))
+        exported_files.append(str(canonical_csv))
         exported_files.append(str(meta_file))
         logger.info(f"Exported CSV stream batch to: {csv_file}")
+        logger.info(f"Updated canonical dataset to: {canonical_csv}")
 
     logger.info(
         f"Ingestion summary: {len(consolidated_df)} records consolidated "
