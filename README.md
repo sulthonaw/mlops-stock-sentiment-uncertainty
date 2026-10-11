@@ -455,18 +455,3 @@ git checkout feat/lk05-dvc-data-versioning
 dvc checkout
 ```
 Hasil verifikasi menunjukkan bahwa file fisik `data/raw/raw_dataset.csv` langsung beralih isi dan ukurannya secara instan sesuai versi Git yang di-*checkout*.
-
----
-
-### 📷 5. Berkas Tangkapan Layar (Screenshots untuk Laporan PDF)
-
-Seluruh tangkapan layar terminal telah diekspor dalam format resolusi tinggi di direktori `reports/screenshots/`:
-1. `reports/screenshots/01_dvc_init.png` - Inisialisasi DVC & status Git.
-2. `reports/screenshots/02_dvc_add_v1.png` - Tracking dataset awal v1 & file pointer `.dvc`.
-3. `reports/screenshots/03_continual_learning_ingest.png` - Eksekusi ingesti & akumulasi data cuitan baru.
-4. `reports/screenshots/04_dvc_status_modified.png` - Deteksi otomatis modifikasi data oleh DVC status.
-5. `reports/screenshots/05_dvc_add_v2_git_diff.png` - Tracking v2 & perbedaan MD5 hash pada git diff.
-6. `reports/screenshots/06_dvc_diff_audit.png` - Audit transisi data dengan `dvc diff`.
-7. `reports/screenshots/07_dvc_remote_push.png` - Konfigurasi remote storage & `dvc push`.
-8. `reports/screenshots/08_dvc_reproducibility_checkout.png` - Bukti beralih data instan dengan `dvc checkout`.
-
