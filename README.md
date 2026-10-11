@@ -253,3 +253,220 @@ Format Ekspor        : both
 Direktori Output     : E:\mlops-stock-sentiment-uncertainty\data\interim
 ============================================================
 ```
+
+---
+
+## 🔄 Pelacakan & Versioning Dataset Menggunakan DVC (LK-05)
+
+Pada tahapan **LK-05**, sistem MLOps diintegrasikan dengan **DVC (*Data Version Control*)** untuk melacak evolusi dataset mentah secara independen dari Git. Pendekatan ini memastikan Git hanya menyimpan berkas metadata pointer berukuran kecil (`.dvc`), sementara artefak data berukuran besar dikelola oleh DVC dengan dukungan *remote storage* dan reproduktibilitas penuh (*continual learning*).
+
+Selain itu, modul **Headless Playwright Crawler** diintegrasikan langsung ke dalam repositori (`src/crawler/`) menggantikan metode ekstensi browser sebelumnya untuk memastikan otomatisasi penuh (*fully automated scraping*) sesuai masukan dosen.
+
+### 📐 Arsitektur Siklus Hidup Data (Crawler + DVC + Git)
+
+```mermaid
+flowchart TD
+    subgraph DataAcquisition["1. Otomasi Perolehan Data (Playwright Stealth Crawler)"]
+        C1["X (Twitter) Live / Top Search"]
+        C2["src/crawler/crawler.py<br/>(Playwright Headless + Cookie Auth)"]
+        C3["Rentang Tanggal (--since, --until)<br/>Minggu Kemarin & Minggu Ini"]
+        C1 --> C2 --> C3
+    end
+
+    subgraph DynamicIngestion["2. Ingesti & Konsolidasi Dinamis"]
+        I1["src/ingest_data.py"]
+        I2["data/raw/raw_dataset.csv (Canonical)"]
+        I3["data/raw/raw_stream_*.csv & .json"]
+        C3 --> I1
+        I1 --> I2
+        I1 --> I3
+    end
+
+    subgraph DVCVersioning["3. DVC Tracking & Git Synchronization"]
+        D1["dvc add data/raw/raw_dataset.csv"]
+        D2["data/raw/raw_dataset.csv.dvc (MD5 Pointer)"]
+        D3[".dvc/cache/ & Remote Storage"]
+        G1["Git Commit & Tags (v1.0-data, v2.0-data)"]
+        I2 --> D1
+        D1 --> D2
+        D1 --> D3
+        D2 --> G1
+    end
+
+    subgraph AuditDiff["4. Audit, Diff & Reproducibility"]
+        A1["dvc diff v1.0-data v2.0-data"]
+        A2["dvc status"]
+        A3["dvc checkout (Instant Version Switching)"]
+        G1 --> A1
+        G1 --> A2
+        G1 --> A3
+    end
+```
+
+---
+
+### 🚀 1. Modul Automated Stealth Crawler (`src/crawler/`)
+
+Crawler otomatis berbasis **Playwright Python** yang mampu melakukan ekstraksi cuitan saham tanpa dependensi berbayar:
+- **Teknik Stealth:** Argument `--disable-blink-features=AutomationControlled` dan sanitasi `navigator.webdriver`.
+- **Injeksi Session Cookies:** Menggunakan `auth_token` dan `ct0` dari file konfigurasi `.env`.
+- **Anti Virtual DOM Recycling:** Menggunakan instant *Hash Set deduplication* (`seen_tweet_ids`) sebelum elemen cuitan di-*unmount* oleh browser.
+- **Dukungan Rentang Waktu Dinamis:** Mendukung argumen `--since` dan `--until` untuk memfilter data per minggu (7 hari).
+
+**Contoh Eksekusi Crawler:**
+```bash
+# 1. Crawl data minggu kemarin (28 Sep - 05 Okt 2026, 20 cuitan)
+python -m src.crawler.crawler --since 2026-09-28 --until 2026-10-05 --max 20 --headless
+
+# 2. Crawl data minggu ini (05 Okt - 12 Okt 2026, 20 cuitan)
+python -m src.crawler.crawler --since 2026-10-05 --until 2026-10-12 --max 20 --headless
+
+# 3. Eksekusi via ingest_data langsung:
+python -m src.ingest_data --crawl --crawl-since 2026-10-05 --crawl-until 2026-10-12 --crawl-max 20
+```
+
+---
+
+### 📦 2. Alur Inisialisasi & Versioning Data DVC
+
+#### Langkah 1: Inisialisasi DVC
+Inisialisasi DVC di repositori proyek:
+```bash
+dvc init
+git commit -m "chore(dvc): initialize DVC repository"
+```
+Perintah ini menghasilkan konfigurasi `.dvc/` dan file `.dvcignore`.
+
+#### Langkah 2: Pelacakan Dataset Awal (Versi 1.0 - LK-04)
+Dataset awal hasil konsolidasi LK-04 (211 baris) dilacak sebagai versi awal:
+```bash
+# Lacak dataset kanonikal ke DVC
+dvc add data/raw/raw_dataset.csv
+
+# Simpan metadata pointer ke Git dan beri Tag rilis
+git add data/raw/raw_dataset.csv.dvc
+git commit -m "feat(data): track initial raw dataset v1 using DVC"
+git tag -a "v1.0-data" -m "Initial raw dataset version 1 (LK-04)"
+```
+**Metadata Pointer Versi 1.0 (`data/raw/raw_dataset.csv.dvc`):**
+```yaml
+outs:
+- md5: b9602204e386a0695c12150a7df57308
+  size: 39327
+  hash: md5
+  path: raw_dataset.csv
+```
+
+#### Langkah 3: Simulasi Continual Learning (Penambahan Data Cuitan Baru)
+Menjalankan crawling batch minggu kemarin & minggu ini, kemudian mengonsolidasi seluruh cuitan ke dataset utama:
+```bash
+python -m src.ingest_data --format both
+```
+Dataset `data/raw/raw_dataset.csv` bertambah dari **211 baris** menjadi **246 baris** (+35 baris data baru).
+
+#### Langkah 4: Versioning Dataset Baru (Versi 2.0 - LK-05)
+Lacak kembali perubahan dataset dengan DVC:
+```bash
+# Lacak ulang data yang diperbarui
+dvc add data/raw/raw_dataset.csv
+
+# Commit perubahan hash pointer ke Git dan beri Tag rilis
+git add data/raw/raw_dataset.csv.dvc
+git commit -m "feat(data): version updated raw dataset v2 with continual learning (LK-05)"
+git tag -a "v2.0-data" -m "Updated raw dataset version 2 with newly crawled tweets"
+```
+**Perubahan Metadata Pointer (`git diff data/raw/raw_dataset.csv.dvc`):**
+```diff
+ outs:
+-- md5: b9602204e386a0695c12150a7df57308
+-  size: 39327
++- md5: f61aba54f3b3d1ab9ebd5da5c19cb75e
++  size: 45553
+   hash: md5
+   path: raw_dataset.csv
+```
+
+---
+
+### 🔍 3. Audit Perubahan Data & Transisi Silsilah (`dvc diff` & `dvc status`)
+
+Untuk memverifikasi perbedaan antar dua versi dataset secara jelas tanpa memuat file biner besar ke Git:
+
+#### A. Pemeriksaan Status (`dvc status`)
+```bash
+dvc status
+```
+**Output:**
+```text
+Data and pipelines are up to date.
+```
+
+#### B. Perbandingan Dua Versi Dataset (`dvc diff v1.0-data v2.0-data`)
+```bash
+dvc diff v1.0-data v2.0-data --show-hash --md
+```
+**Output Tabel Audit:**
+| Status   | Hash               | Path                     |
+|----------|--------------------|--------------------------|
+| modified | b9602204..f61aba54 | data\raw\raw_dataset.csv |
+
+Format JSON untuk integrasi CI/CD (`dvc diff v1.0-data v2.0-data --show-hash --json`):
+```json
+{
+  "added": [],
+  "deleted": [],
+  "modified": [
+    {
+      "path": "data\\raw\\raw_dataset.csv",
+      "hash": {
+        "old": "b9602204e386a0695c12150a7df57308",
+        "new": "f61aba54f3b3d1ab9ebd5da5c19cb75e"
+      }
+    }
+  ],
+  "renamed": []
+}
+```
+
+---
+
+### ☁️ 4. Konfigurasi Remote Storage & Reproduktibilitas
+
+Untuk menjamin dataset tersimpan di luar repositori lokal (*external storage / cloud*):
+
+#### Konfigurasi Remote Storage:
+```bash
+# Menambahkan remote storage default (lokal / mount path / S3 / MinIO)
+dvc remote add -d myremote E:/dvc-storage-remote
+git commit -am "chore(dvc): configure remote storage and push dataset"
+
+# Mengunggah data ke remote storage
+dvc push
+```
+
+#### Pengujian Reproducibility & Instant Data Switching:
+```bash
+# 1. Beralih ke dataset Versi 1.0 (211 baris)
+git checkout v1.0-data
+dvc checkout
+
+# 2. Beralih kembali ke dataset Versi 2.0 (246 baris)
+git checkout feat/lk05-dvc-data-versioning
+dvc checkout
+```
+Hasil verifikasi menunjukkan bahwa file fisik `data/raw/raw_dataset.csv` langsung beralih isi dan ukurannya secara instan sesuai versi Git yang di-*checkout*.
+
+---
+
+### 📷 5. Berkas Tangkapan Layar (Screenshots untuk Laporan PDF)
+
+Seluruh tangkapan layar terminal telah diekspor dalam format resolusi tinggi di direktori `reports/screenshots/`:
+1. `reports/screenshots/01_dvc_init.png` - Inisialisasi DVC & status Git.
+2. `reports/screenshots/02_dvc_add_v1.png` - Tracking dataset awal v1 & file pointer `.dvc`.
+3. `reports/screenshots/03_continual_learning_ingest.png` - Eksekusi ingesti & akumulasi data cuitan baru.
+4. `reports/screenshots/04_dvc_status_modified.png` - Deteksi otomatis modifikasi data oleh DVC status.
+5. `reports/screenshots/05_dvc_add_v2_git_diff.png` - Tracking v2 & perbedaan MD5 hash pada git diff.
+6. `reports/screenshots/06_dvc_diff_audit.png` - Audit transisi data dengan `dvc diff`.
+7. `reports/screenshots/07_dvc_remote_push.png` - Konfigurasi remote storage & `dvc push`.
+8. `reports/screenshots/08_dvc_reproducibility_checkout.png` - Bukti beralih data instan dengan `dvc checkout`.
+
