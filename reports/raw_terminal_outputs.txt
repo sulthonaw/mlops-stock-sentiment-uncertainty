@@ -1,0 +1,198 @@
+================================================================================
+RAW TERMINAL OUTPUTS (LK-05: INTEGRASI DVC & CONTINUAL LEARNING)
+================================================================================
+
+--------------------------------------------------------------------------------
+[1] INISIALISASI DVC
+--------------------------------------------------------------------------------
+Perintah:
+PS E:\mlops-stock-sentiment-uncertainty> python -m dvc init
+PS E:\mlops-stock-sentiment-uncertainty> git status
+
+Output Terminal:
+Initialized DVC repository.
+
+You can now commit the changes to git.
+
++---------------------------------------------------------------------+
+|                                                                     |
+|        DVC has enabled anonymous aggregate usage analytics.         |
+|     Read the analytics documentation (and how to opt-out) here:     |
+|             <https://dvc.org/doc/user-guide/analytics>              |
+|                                                                     |
++---------------------------------------------------------------------+
+
+What's next?
+------------
+- Check out the documentation: <https://dvc.org/doc>
+- Get help and share ideas: <https://dvc.org/chat>
+- Star us on GitHub: <https://github.com/treeverse/dvc>
+
+On branch feat/lk05-dvc-data-versioning
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   .dvc/.gitignore
+	new file:   .dvc/config
+	new file:   .dvcignore
+
+
+--------------------------------------------------------------------------------
+[2] TRACKING DATASET AWAL (VERSI 1.0 - LK-04)
+--------------------------------------------------------------------------------
+Perintah:
+PS E:\mlops-stock-sentiment-uncertainty> python -m dvc add data/raw/raw_dataset.csv
+PS E:\mlops-stock-sentiment-uncertainty> Get-Content data/raw/raw_dataset.csv.dvc
+PS E:\mlops-stock-sentiment-uncertainty> git commit -m "feat(data): track initial raw dataset v1 using DVC"
+PS E:\mlops-stock-sentiment-uncertainty> git tag -a "v1.0-data" -m "Initial raw dataset version 1 (LK-04)"
+
+Output Terminal:
+100% Adding...|████████████████████████████████████████|1/1 [00:00, 21.4file/s]
+
+To track the changes with git, run:
+
+	git add 'data\raw\raw_dataset.csv.dvc'
+
+To enable auto staging, run:
+
+	dvc config core.autostage true
+
+--- Isi data/raw/raw_dataset.csv.dvc ---
+outs:
+- md5: b9602204e386a0695c12150a7df57308
+  size: 39327
+  hash: md5
+  path: raw_dataset.csv
+
+[feat/lk05-dvc-data-versioning 57d136c] feat(data): track initial raw dataset v1 using DVC
+ 1 file changed, 5 insertions(+)
+ create mode 100644 data/raw/raw_dataset.csv.dvc
+
+
+--------------------------------------------------------------------------------
+[3] SIMULASI CONTINUAL LEARNING (CRAWL DATA BARU & KONSOLIDASI)
+--------------------------------------------------------------------------------
+Perintah:
+PS E:\mlops-stock-sentiment-uncertainty> python -m src.ingest_data --format both
+
+Output Terminal:
+[2026-10-11 21:44:37] [INFO] [data_ingestion]: Scanning directory: E:\mlops-stock-sentiment-uncertainty\data\raw
+[2026-10-11 21:44:37] [INFO] [data_ingestion]: Found 4 candidate raw crawl file(s).
+[2026-10-11 21:44:37] [INFO] [data_ingestion]: Successfully validated 'x_stock_tweets__bbca_or_bbri_or_bmri_or_bbni_or_tlkm_or_asii_or_unvr_or_tpia_or_hmsp_or_byan_since_2026-09-14_until_2026-09-21_2026-09-28.csv' (118 records).
+[2026-10-11 21:44:37] [INFO] [data_ingestion]: Successfully validated 'x_stock_tweets__bbca_or_bbri_or_bmri_or_bbni_or_tlkm_or_asii_or_unvr_or_tpia_or_hmsp_or_byan_since_2026-09-21_until_2026-09-29_2026-09-28.csv' (88 records).
+[2026-10-11 21:44:37] [INFO] [data_ingestion]: Successfully validated 'x_stock_tweets_since_2026-09-28_until_2026-10-05_2026-10-11.csv' (20 records).
+[2026-10-11 21:44:37] [INFO] [data_ingestion]: Successfully validated 'x_stock_tweets_since_2026-10-05_until_2026-10-12_2026-10-11.csv' (20 records).
+[2026-10-11 21:44:37] [INFO] [data_ingestion]: Exported JSON stream batch to: data\raw\raw_stream_20261011_144437.json
+[2026-10-11 21:44:37] [INFO] [data_ingestion]: Exported CSV stream batch to: data\raw\raw_stream_20261011_144437.csv
+[2026-10-11 21:44:37] [INFO] [data_ingestion]: Updated canonical dataset to: data\raw\raw_dataset.csv
+[2026-10-11 21:44:37] [INFO] [data_ingestion]: Ingestion summary: 246 records consolidated across 4 source files and 0 mock records. Tickers: ASII, BBCA, BBNI, BBRI, BMRI, BYAN, HMSP, TLKM, TPIA, UNVR
+
+
+--------------------------------------------------------------------------------
+[4] AUDIT STATUS DVC: DETEKSI PERUBAHAN DATA
+--------------------------------------------------------------------------------
+Perintah:
+PS E:\mlops-stock-sentiment-uncertainty> python -m dvc status
+
+Output Terminal:
+data\raw\raw_dataset.csv.dvc:
+	changed outs:
+		modified:           data\raw\raw_dataset.csv
+
+
+--------------------------------------------------------------------------------
+[5] VERSIONING VERSI BARU (VERSI 2.0 - LK-05) & GIT DIFF
+--------------------------------------------------------------------------------
+Perintah:
+PS E:\mlops-stock-sentiment-uncertainty> python -m dvc add data/raw/raw_dataset.csv
+PS E:\mlops-stock-sentiment-uncertainty> git diff data/raw/raw_dataset.csv.dvc
+PS E:\mlops-stock-sentiment-uncertainty> git commit -m "feat(data): version updated raw dataset v2 with continual learning (LK-05)"
+PS E:\mlops-stock-sentiment-uncertainty> git tag -a "v2.0-data" -m "Updated raw dataset version 2 with newly crawled tweets"
+
+Output Terminal:
+100% Adding...|████████████████████████████████████████|1/1 [00:00, 24.8file/s]
+
+To track the changes with git, run:
+
+	git add 'data\raw\raw_dataset.csv.dvc'
+
+diff --git a/data/raw/raw_dataset.csv.dvc b/data/raw/raw_dataset.csv.dvc
+index e656e34..7db4daf 100644
+--- a/data/raw/raw_dataset.csv.dvc
++++ b/data/raw/raw_dataset.csv.dvc
+@@ -1,5 +1,5 @@
+ outs:
+-- md5: b9602204e386a0695c12150a7df57308
+-  size: 39327
++- md5: f61aba54f3b3d1ab9ebd5da5c19cb75e
++  size: 45553
+   hash: md5
+   path: raw_dataset.csv
+
+[feat/lk05-dvc-data-versioning 7cbf3bc] feat(data): version updated raw dataset v2 with continual learning (LK-05)
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+
+--------------------------------------------------------------------------------
+[6] AUDIT TRANSISI ANTAR VERSI (dvc diff)
+--------------------------------------------------------------------------------
+Perintah:
+PS E:\mlops-stock-sentiment-uncertainty> python -m dvc diff v1.0-data v2.0-data --show-hash --md
+PS E:\mlops-stock-sentiment-uncertainty> python -m dvc diff v1.0-data v2.0-data --show-hash --json
+
+Output Terminal:
+| Status   | Hash               | Path                     |
+|----------|--------------------|--------------------------|
+| modified | b9602204..f61aba54 | data\raw\raw_dataset.csv |
+
+--- Format JSON ---
+{"added": [], "deleted": [], "modified": [{"path": "data\\raw\\raw_dataset.csv", "hash": {"old": "b9602204e386a0695c12150a7df57308", "new": "f61aba54f3b3d1ab9ebd5da5c19cb75e"}}], "renamed": []}
+
+
+--------------------------------------------------------------------------------
+[7] PEMERIKSAAN STATUS DVC TERKINI
+--------------------------------------------------------------------------------
+Perintah:
+PS E:\mlops-stock-sentiment-uncertainty> python -m dvc status
+
+Output Terminal:
+Data and pipelines are up to date.
+
+
+--------------------------------------------------------------------------------
+[8] KONFIGURASI REMOTE STORAGE & PUSH
+--------------------------------------------------------------------------------
+Perintah:
+PS E:\mlops-stock-sentiment-uncertainty> python -m dvc remote add -d myremote "E:/dvc-storage-remote"
+PS E:\mlops-stock-sentiment-uncertainty> python -m dvc push
+PS E:\mlops-stock-sentiment-uncertainty> Get-ChildItem -Path "E:\dvc-storage-remote" -Recurse
+
+Output Terminal:
+Setting 'myremote' as a default remote.
+100% Pushing to remote...|███████████████████████████|1/1 [00:00, 38.2file/s]
+1 file pushed
+
+    Directory: E:\dvc-storage-remote\files\md5\f6
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-ar---        10/11/2026   9:45 PM          45553 1aba54f3b3d1ab9ebd5da5c19cb75e
+
+
+--------------------------------------------------------------------------------
+[9] REPRODUCIBILITY & INSTANT DATA SWITCHING
+--------------------------------------------------------------------------------
+Perintah:
+PS E:\mlops-stock-sentiment-uncertainty> git checkout v1.0-data; python -m dvc checkout
+PS E:\mlops-stock-sentiment-uncertainty> python -c "import pandas as pd; df = pd.read_csv('data/raw/raw_dataset.csv'); print('V1 Records:', len(df))"
+PS E:\mlops-stock-sentiment-uncertainty> git checkout feat/lk05-dvc-data-versioning; python -m dvc checkout
+PS E:\mlops-stock-sentiment-uncertainty> python -c "import pandas as pd; df = pd.read_csv('data/raw/raw_dataset.csv'); print('V2 Records:', len(df))"
+
+Output Terminal:
+Note: switching to 'v1.0-data'.
+HEAD is now at 57d136c feat(data): track initial raw dataset v1 using DVC
+M       data\raw\raw_dataset.csv
+V1 Records: 211
+
+Switched to branch 'feat/lk05-dvc-data-versioning'
+M       data\raw\raw_dataset.csv
+V2 Records: 246
