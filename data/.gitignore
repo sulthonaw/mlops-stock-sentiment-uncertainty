@@ -1,13 +1,10 @@
-# Ignore all files in this directory and subdirectories by default
-*
-# Except .gitignore and .gitkeep
+# Ignore direct files in data/
+/*
 !.gitignore
 !.gitkeep
-!*/.gitkeep
 
-# Allow raw crawled tweets and dynamic ingestion stream files
+# Allow subdirectories
 !raw/
-raw/*
-!raw/.gitkeep
-!raw/x_stock_tweets_*.csv
-!raw/raw_stream_*
+!interim/
+!processed/
+!external/

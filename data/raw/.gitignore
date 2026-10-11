@@ -1,0 +1,7 @@
+# Ignore data files in data/raw tracked by DVC
+*
+
+# Whitelist metadata and tracking files
+!.gitignore
+!.gitkeep
+!*.dvc
