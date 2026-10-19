@@ -169,6 +169,9 @@ Repositori ini telah dikonfigurasi dengan `.devcontainer/devcontainer.json` sehi
    python -m venv .venv
    .venv\Scripts\Activate.ps1
 
+   # Windows (Git Bash)
+   source .venv/Scripts/activate
+
    # Linux / macOS
    python3 -m venv .venv
    source .venv/bin/activate
@@ -455,3 +458,52 @@ git checkout feat/lk05-dvc-data-versioning
 dvc checkout
 ```
 Hasil verifikasi menunjukkan bahwa file fisik `data/raw/raw_dataset.csv` langsung beralih isi dan ukurannya secara instan sesuai versi Git yang di-*checkout*.
+
+---
+
+## 🔬 Implementasi LK-06: Eksperimen Model, MLflow Tracking & Model Registry
+
+Pada tahapan **LK-06**, sistem machine learning untuk klasifikasi sentimen saham Indonesia diintegrasikan dengan **MLflow** sebagai platform pelacak eksperimen (*experiment tracking*), perbandingan variasi hyperparameter, dan manajemen siklus hidup model (*Model Registry*).
+
+### 1. Pelatihan Model & Integrasi MLflow
+Skrip pelatihan utama berada di [`train.py`](train.py) dan didukung modul modular [`src/models/train_model.py`](src/models/train_model.py):
+- **Pelacakan Parameter (`mlflow.log_params`):** Mencatat algoritma classifier, parameter regularisasi $C$, jangkauan n-gram, batas fitur TF-IDF, penskalaan sublinear, dan hash DVC dataset.
+- **Pelacakan Metrik (`mlflow.log_metrics`):** Menghitung dan mencatat performa pada data validasi (*Accuracy, Macro F1, Weighted F1, Macro Precision, Macro Recall*).
+- **Penyimpanan Artefak (`mlflow.log_artifact`):** Menyimpan grafik heatmap *Confusion Matrix* (`confusion_matrix.png`) dan laporan klasifikasi terperinci (`classification_report.json`).
+- **Pencatatan Model (`mlflow.sklearn.log_model`):** Menyimpan model Scikit-Learn beserta *input example* dan *model signature*.
+
+### 2. Cara Menjalankan Pelatihan & Variasi Eksperimen
+
+Pastikan virtual environment telah aktif terlebih dahulu:
+```bash
+# Git Bash:
+source .venv/Scripts/activate
+
+# Atau PowerShell:
+.venv\Scripts\Activate.ps1
+```
+
+Jalankan perintah berikut:
+```bash
+# 1. Menjalankan 3 variasi eksperimen otomatis & registrasi model terbaik
+python train.py --run-variations
+
+# 2. Atau menjalankan 1 run kustom spesifik
+python train.py --classifier logistic_regression --c 2.5 --ngram-max 2 --sublinear-tf
+```
+
+### 3. Membuka Dashboard Visual MLflow UI
+
+Untuk membandingkan performa antar run, melihat grafik metrik, serta melihat Model Registry:
+```bash
+# Menggunakan virtual environment aktif:
+python -m mlflow ui --backend-store-uri sqlite:///mlruns.db --port 5000
+
+# Atau langsung mengeksekusi path python venv (Git Bash):
+./.venv/Scripts/python -m mlflow ui --backend-store-uri sqlite:///mlruns.db --port 5000
+```
+> Akses dashboard melalui peramban: **[http://localhost:5000](http://localhost:5000)**
+
+### 4. Luaran Metadata Model Terdaftar
+Model terbaik yang terpilih secara otomatis didaftarkan ke MLflow Model Registry sebagai **`StockSentimentModel`** (Version 1). Rincian metadata model yang siap digunakan untuk tahapan serving/deployment tercatat pada file [`models/model_metadata.json`](models/model_metadata.json).
+
