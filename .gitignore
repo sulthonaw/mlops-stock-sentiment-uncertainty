@@ -81,6 +81,7 @@ venv.bak/
 
 # MLflow & DVC tracking cache
 mlruns/
+mlruns.db
 .dvc/cache/
 .dvc/tmp/
 

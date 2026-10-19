@@ -1,0 +1,39 @@
+{
+  "model_registry_name": "StockSentimentModel",
+  "model_version": 1,
+  "best_run_id": "34edad3980884c02a410504857785c00",
+  "best_run_name": "run3_linearsvc_margin_maximizer",
+  "selection_metric": "val_f1_macro",
+  "best_metric_value": 0.778114984145842,
+  "metrics": {
+    "val_accuracy": 0.8009118541033434,
+    "val_f1_macro": 0.778114984145842,
+    "val_f1_weighted": 0.8001682972848194,
+    "val_precision_macro": 0.7813187297557339,
+    "val_recall_macro": 0.7756266060348355
+  },
+  "parameters": {
+    "classifier_type": "linear_svc",
+    "c_regularization": 1.0,
+    "ngram_min": 1,
+    "ngram_max": 2,
+    "max_features": 8000,
+    "sublinear_tf": true,
+    "random_state": 42,
+    "test_size": 0.2,
+    "dataset_path": "data\\raw\\IDSMSA.csv",
+    "train_samples": 2630,
+    "test_samples": 658,
+    "dvc_md5": "eed20df7006e3316eb967ec5c2371d5c",
+    "dvc_size_bytes": 1091613,
+    "dvc_pointer_file": "E:\\mlops-stock-sentiment-uncertainty\\data\\raw\\IDSMSA.csv.dvc"
+  },
+  "registered_at": "2026-10-19T09:47:11.262646+00:00",
+  "tracking_uri": "sqlite:///mlruns.db",
+  "experiment_name": "stock-sentiment-analysis",
+  "deployment_recommendation": {
+    "target_service": "FastAPI Sentiment Inference Service",
+    "batch_infer_support": true,
+    "latency": "low (<15ms)"
+  }
+}
