@@ -1,8 +1,9 @@
 {
-  "model_registry_name": "StockSentimentModel",
+  "model_registry_name": "StockSentimentClassifier",
   "model_version": 1,
-  "best_run_id": "e803eec541ec47729f623611fc5df20f",
+  "best_run_id": "bdbb4d5de3e24e868270d43c43ea566e",
   "best_run_name": "run3_linearsvc_margin_maximizer",
+  "best_model_artifact_name": "linearsvc_sentiment_classifier",
   "selection_metric": "val_f1_macro",
   "best_metric_value": 0.778114984145842,
   "metrics": {
@@ -28,7 +29,7 @@
     "dvc_size_bytes": 1091613,
     "dvc_pointer_file": "E:\\mlops-stock-sentiment-uncertainty\\data\\raw\\IDSMSA.csv.dvc"
   },
-  "registered_at": "2026-10-19T10:05:16.038666+00:00",
+  "registered_at": "2026-10-19T12:32:56.301112+00:00",
   "tracking_uri": "sqlite:///mlruns.db",
   "experiment_name": "stock-sentiment-analysis",
   "deployment_recommendation": {

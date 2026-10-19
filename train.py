@@ -37,7 +37,7 @@ def run_experiment_variations(
     dataset_path: Path,
     tracking_uri: str,
     experiment_name: str,
-    model_registry_name: str = "StockSentimentModel",
+    model_registry_name: str = "StockSentimentClassifier",
 ) -> Dict[str, Any]:
     """Execute 3 distinct hyperparameter variation runs and register the best model."""
     logger.info("=================================================================")
@@ -48,6 +48,7 @@ def run_experiment_variations(
         {
             "run_name": "run1_logreg_baseline_unigram",
             "classifier_type": "logistic_regression",
+            "model_artifact_name": "logreg_baseline_classifier",
             "c_param": 1.0,
             "ngram_range": (1, 1),
             "max_features": 5000,
@@ -57,6 +58,7 @@ def run_experiment_variations(
         {
             "run_name": "run2_logreg_tuned_bigram_sublinear",
             "classifier_type": "logistic_regression",
+            "model_artifact_name": "logreg_tuned_classifier",
             "c_param": 2.5,
             "ngram_range": (1, 2),
             "max_features": 8000,
@@ -66,6 +68,7 @@ def run_experiment_variations(
         {
             "run_name": "run3_linearsvc_margin_maximizer",
             "classifier_type": "linear_svc",
+            "model_artifact_name": "linearsvc_sentiment_classifier",
             "c_param": 1.0,
             "ngram_range": (1, 2),
             "max_features": 8000,
@@ -77,7 +80,7 @@ def run_experiment_variations(
     run_results: List[Dict[str, Any]] = []
 
     for idx, var in enumerate(variations, 1):
-        logger.info(f"\n--- [VARIATION {idx}/3]: {var['run_name']} ---")
+        logger.info(f"\n--- [VARIATION {idx}/3]: {var['run_name']} (Model: {var['model_artifact_name']}) ---")
         res = train_and_log_run(
             dataset_path=dataset_path,
             classifier_type=var["classifier_type"],
@@ -87,6 +90,7 @@ def run_experiment_variations(
             sublinear_tf=var["sublinear_tf"],
             experiment_name=experiment_name,
             run_name=var["run_name"],
+            model_artifact_name=var["model_artifact_name"],
             tracking_uri=tracking_uri,
             tags=var["tags"],
         )
@@ -122,7 +126,7 @@ def run_experiment_variations(
     # 5. Register Best Model to MLflow Model Registry
     logger.info(f"\n[REGISTRY] Registering best model to MLflow Model Registry as '{model_registry_name}'...")
     mlflow.set_tracking_uri(tracking_uri)
-    model_uri = f"runs:/{best_run['run_id']}/model"
+    model_uri = f"runs:/{best_run['run_id']}/{best_run['model_artifact_name']}"
 
     registered_model = mlflow.register_model(
         model_uri=model_uri,
@@ -130,6 +134,7 @@ def run_experiment_variations(
         tags={
             "selection_criterion": "highest_val_f1_macro",
             "source_run_id": best_run["run_id"],
+            "model_artifact_name": best_run["model_artifact_name"],
             "registered_at": datetime.now(timezone.utc).isoformat(),
         },
     )
@@ -155,6 +160,7 @@ def run_experiment_variations(
         "model_version": registered_model.version,
         "best_run_id": best_run["run_id"],
         "best_run_name": best_run["run_name"],
+        "best_model_artifact_name": best_run["model_artifact_name"],
         "selection_metric": "val_f1_macro",
         "best_metric_value": highest_f1,
         "metrics": best_run["metrics"],
@@ -242,6 +248,12 @@ def main():
         help="Apply sublinear TF scaling",
     )
     parser.add_argument(
+        "--model-artifact-name",
+        type=str,
+        default=None,
+        help="Custom model artifact name logged to MLflow (default: <classifier>_classifier)",
+    )
+    parser.add_argument(
         "--register-model",
         type=str,
         default=None,
@@ -267,6 +279,7 @@ def main():
             ngram_range=(1, args.ngram_max),
             max_features=args.max_features,
             sublinear_tf=args.sublinear_tf,
+            model_artifact_name=args.model_artifact_name,
             experiment_name=args.experiment,
             tracking_uri=args.tracking_uri,
             registered_model_name=args.register_model,

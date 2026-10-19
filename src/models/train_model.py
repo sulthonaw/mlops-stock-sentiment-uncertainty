@@ -180,6 +180,7 @@ def train_and_log_run(
     test_size: float = 0.2,
     experiment_name: str = DEFAULT_EXPERIMENT_NAME,
     run_name: Optional[str] = None,
+    model_artifact_name: Optional[str] = None,
     tracking_uri: str = DEFAULT_TRACKING_URI,
     registered_model_name: Optional[str] = None,
     tags: Optional[Dict[str, str]] = None,
@@ -320,11 +321,13 @@ def train_and_log_run(
         sample_output = pipeline.predict(sample_input)
         signature = infer_signature(sample_input, sample_output)
 
+        artifact_name = model_artifact_name or f"{classifier_type}_classifier"
+
         try:
-            # MLflow 3.x accepts name="model"
+            # MLflow 3.x accepts name
             mlflow.sklearn.log_model(
                 sk_model=pipeline,
-                name="model",
+                name=artifact_name,
                 signature=signature,
                 input_example=sample_input,
                 registered_model_name=registered_model_name,
@@ -334,18 +337,19 @@ def train_and_log_run(
             # Fallback for older MLflow accepting artifact_path
             mlflow.sklearn.log_model(
                 sk_model=pipeline,
-                artifact_path="model",
+                artifact_path=artifact_name,
                 signature=signature,
                 input_example=sample_input,
                 registered_model_name=registered_model_name,
                 serialization_format="cloudpickle",
             )
 
-        logger.info(f"Model successfully logged to MLflow Run: {run_id}")
+        logger.info(f"Model successfully logged to MLflow Run: {run_id} as '{artifact_name}'")
 
         return {
             "run_id": run_id,
             "run_name": auto_run_name,
+            "model_artifact_name": artifact_name,
             "metrics": metrics,
             "params": params,
             "pipeline": pipeline,
