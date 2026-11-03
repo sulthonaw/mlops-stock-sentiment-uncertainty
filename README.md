@@ -6,7 +6,7 @@
 
 ---
 
-## 📌 Informasi Mahasiswa
+## Informasi Mahasiswa
 - **Nama:** Muhammad Sulthon Aulia Wijaya
 - **NIM:** 245150207111103
 - **Kelas:** TIF-A
@@ -15,11 +15,11 @@
 
 ---
 
-## 📖 Penjelasan Proyek
+## Penjelasan Proyek
 Proyek ini mengimplementasikan sistem **MLOps berkelanjutan (*Continuous Training & Active Learning*)** untuk klasifikasi sentimen (*positive*, *neutral*, *negative*) serta *Aspect-Based Sentiment Analysis* pada percakapan media sosial (X/Twitter) terkait 10 saham Big Cap di Bursa Efek Indonesia (IDX):
 > **Daftar Saham:** `BBCA`, `BBRI`, `BMRI`, `BBNI`, `TLKM`, `ASII`, `UNVR`, `TPIA`, `HMSP`, `BYAN`.
 
-### 📊 Dataset yang Digunakan
+### Dataset yang Digunakan
 1. **Baseline Dataset:** **ID-SMSA (*Indonesian Stock Market Dataset for Sentiment Analysis*)**
    - **Sumber:** Mendeley Data (DOI: `10.17632/tn4vzs8tdw.3`)
    - **Jumlah:** 3.288 cuitan teranotasi (1.769 *Positive*, 733 *Neutral*, 786 *Negative*) periode 2021–2024.
@@ -28,7 +28,7 @@ Proyek ini mengimplementasikan sistem **MLOps berkelanjutan (*Continuous Trainin
    - **Metode:** Pengumpulan data harian secara mandiri melalui *Custom Browser Extension* (DOM parsing X Web) tanpa dependensi API X berbayar.
    - **Fungsi:** Sumber data dinamis untuk mendeteksi pergeseran pola bahasa (*data/concept drift*) dan pengayaan *Active Learning*.
 
-### 💡 Pendekatan & Solusi MLOps
+### Pendekatan & Solusi MLOps
 - **Tantangan:** Bahasa percakapan pasar modal sangat dinamis (*slang*, istilah *cuan, cut loss, ARA, ARB, window dressing*). Model tanpa pembaruan berkala akan mengalami penurunan performa akibat *concept drift* dan *covariate shift*.
 - **Solusi Pipeline:**
   - **Baseline Training:** Fine-tuning IndoBERT menggunakan dataset ID-SMSA dan pelacakan eksperimen via MLflow.
@@ -40,7 +40,7 @@ Proyek ini mengimplementasikan sistem **MLOps berkelanjutan (*Continuous Trainin
 
 ---
 
-## 🏗️ Arsitektur Pipeline
+## Arsitektur Pipeline
 
 ```mermaid
 flowchart TD
@@ -90,7 +90,7 @@ flowchart TD
 
 ---
 
-## 📂 Struktur Direktori
+## Struktur Direktori
 
 ```text
 mlops-stock-sentiment-uncertainty/
@@ -146,7 +146,7 @@ mlops-stock-sentiment-uncertainty/
 
 ---
 
-## 🚀 Panduan Menjalankan Proyek
+## Panduan Menjalankan Proyek
 
 ### Opsi 1: Menjalankan di GitHub Codespaces (Rekomendasi)
 Repositori ini telah dikonfigurasi dengan `.devcontainer/devcontainer.json` sehingga seluruh lingkungan kerja (Python 3.11, dependensi library, dan ekstensi VS Code) akan terpasang secara otomatis:
@@ -185,7 +185,7 @@ Repositori ini telah dikonfigurasi dengan `.devcontainer/devcontainer.json` sehi
 
 ---
 
-## 📥 Implementasi LK-04: Penarikan Data Dinamis & Automasi Prapemrosesan
+## Implementasi LK-04: Penarikan Data Dinamis & Automasi Prapemrosesan
 
 Pada tahapan **LK-04**, pipeline MLOps ini telah dilengkapi dengan komponen penarikan data (*data ingestion*) dinamis dan automasi prapemrosesan (*text preprocessing automation*) untuk mengolah percakapan saham mentah dari platform X secara terstruktur dan non-destruktif.
 
@@ -259,13 +259,13 @@ Direktori Output     : E:\mlops-stock-sentiment-uncertainty\data\interim
 
 ---
 
-## 🔄 Pelacakan & Versioning Dataset Menggunakan DVC (LK-05)
+## Pelacakan & Versioning Dataset Menggunakan DVC (LK-05)
 
 Pada tahapan **LK-05**, sistem MLOps diintegrasikan dengan **DVC (*Data Version Control*)** untuk melacak evolusi dataset mentah secara independen dari Git. Pendekatan ini memastikan Git hanya menyimpan berkas metadata pointer berukuran kecil (`.dvc`), sementara artefak data berukuran besar dikelola oleh DVC dengan dukungan *remote storage* dan reproduktibilitas penuh (*continual learning*).
 
 Selain itu, modul **Headless Playwright Crawler** diintegrasikan langsung ke dalam repositori (`src/crawler/`) menggantikan metode ekstensi browser sebelumnya untuk memastikan otomatisasi penuh (*fully automated scraping*) sesuai masukan dosen.
 
-### 📐 Arsitektur Siklus Hidup Data (Crawler + DVC + Git)
+### Arsitektur Siklus Hidup Data (Crawler + DVC + Git)
 
 ```mermaid
 flowchart TD
@@ -308,7 +308,7 @@ flowchart TD
 
 ---
 
-### 🚀 1. Modul Automated Stealth Crawler (`src/crawler/`)
+### 1. Modul Automated Stealth Crawler (`src/crawler/`)
 
 Crawler otomatis berbasis **Playwright Python** yang mampu melakukan ekstraksi cuitan saham tanpa dependensi berbayar:
 - **Teknik Stealth:** Argument `--disable-blink-features=AutomationControlled` dan sanitasi `navigator.webdriver`.
@@ -330,7 +330,7 @@ python -m src.ingest_data --crawl --crawl-since 2026-10-05 --crawl-until 2026-10
 
 ---
 
-### 📦 2. Alur Inisialisasi & Versioning Data DVC
+### 2. Alur Inisialisasi & Versioning Data DVC
 
 #### Langkah 1: Inisialisasi DVC
 Inisialisasi DVC di repositori proyek:
@@ -391,7 +391,7 @@ git tag -a "v2.0-data" -m "Updated raw dataset version 2 with newly crawled twee
 
 ---
 
-### 🔍 3. Audit Perubahan Data & Transisi Silsilah (`dvc diff` & `dvc status`)
+### 3. Audit Perubahan Data & Transisi Silsilah (`dvc diff` & `dvc status`)
 
 Untuk memverifikasi perbedaan antar dua versi dataset secara jelas tanpa memuat file biner besar ke Git:
 
@@ -433,7 +433,7 @@ Format JSON untuk integrasi CI/CD (`dvc diff v1.0-data v2.0-data --show-hash --j
 
 ---
 
-### ☁️ 4. Konfigurasi Remote Storage & Reproduktibilitas
+### 4. Konfigurasi Remote Storage & Reproduktibilitas
 
 Untuk menjamin dataset tersimpan di luar repositori lokal (*external storage / cloud*):
 
@@ -461,7 +461,7 @@ Hasil verifikasi menunjukkan bahwa file fisik `data/raw/raw_dataset.csv` langsun
 
 ---
 
-## 🔬 Implementasi LK-06: Eksperimen Model, MLflow Tracking & Model Registry
+## Implementasi LK-06: Eksperimen Model, MLflow Tracking & Model Registry
 
 Pada tahapan **LK-06**, sistem machine learning untuk klasifikasi sentimen saham Indonesia diintegrasikan dengan **MLflow** sebagai platform pelacak eksperimen (*experiment tracking*), perbandingan variasi hyperparameter, dan manajemen siklus hidup model (*Model Registry*).
 
@@ -511,7 +511,7 @@ Model terbaik yang terpilih secara otomatis didaftarkan ke MLflow Model Registry
 
 ---
 
-## 🚀 Implementasi LK-07: Model Registry, Versioning, dan Kesiapan Inferensi
+## Implementasi LK-07: Model Registry, Versioning, dan Kesiapan Inferensi
 
 Pada tahapan **LK-07**, siklus hidup artefak model yang dihasilkan pada LK-06 dikelola secara profesional melalui mekanisme **MLflow Model Registry**, penerapan versioning artefak bertingkat (`v1` dan `v2`), transisi stage operasional industri (*lifecycle staging*), pengikatan silsilah data (*data lineage*) dengan **DVC**, serta verifikasi kesiapan inferensi (*inference readiness*) berbasis `mlflow.pyfunc`.
 
@@ -549,7 +549,7 @@ flowchart LR
 
 ---
 
-### 📌 1. Versi Model Aktif untuk Inferensi & Alasan Pemilihan
+### 1. Versi Model Aktif untuk Inferensi & Alasan Pemilihan
 
 Saat ini, model yang berstatus aktif dan ditunjuk untuk melayani inferensi di tahap produksi (*serving ready*) adalah:
 > **Model Name:** `StockSentimentClassifier`  
@@ -558,7 +558,7 @@ Saat ini, model yang berstatus aktif dan ditunjuk untuk melayani inferensi di ta
 > **Source Run ID:** `37f6b7467cf44c5c944dd0eba1a472b6`  
 > **Inference URI:** `models:/StockSentimentClassifier/Production`
 
-#### 📊 Perbandingan Metrik Versi Model:
+#### Perbandingan Metrik Versi Model:
 | Atribut Evaluasi | Versi 1 (`v1` - Baseline) | Versi 2 (`v2` - Production) | Peningkatan / Keunggulan |
 | :--- | :--- | :--- | :--- |
 | **Status Stage** | `Archived` (Diarsipkan) | **`Production` (Aktif)** | Siap melayani beban produksi |
@@ -571,14 +571,14 @@ Saat ini, model yang berstatus aktif dan ditunjuk untuk melayani inferensi di ta
 | **Macro Precision** | 0.7813 | **0.7836** | **+0.23%** (Presisi deteksi sentimen meningkat) |
 | **Rata-rata Latensi Inferensi** | ~14.0 ms | **8.68 ms / kalimat** | **Jauh di bawah target industri (< 15 ms)** |
 
-#### 💡 Alasan Utama Pemilihan Versi 2 sebagai Production Model:
+#### Alasan Utama Pemilihan Versi 2 sebagai Production Model:
 1. **Peningkatan N-gram Kontekstual:** Penggunaan *tri-gram* $(1, 3)$ memungkinkan model membedakan konteks kalimat majemuk khas pasar modal Indonesia yang sering menjebak bi-gram, seperti *"laba bersih rekor"* (positif), *"anjlok menembus support"* (negatif), atau *"tumbuh agresif solid"* (positif).
 2. **Presisi Makro Lebih Tinggi:** Macro precision meningkat menjadi **0.7836** (dari 0.7813), mengurangi kesalahan prediksi (*false positives*) pada rekomendasi sentimen saham sensitif.
 3. **Efisiensi Latensi Tinggi:** Hasil pengujian inferensi programatik mencatatkan waktu respons **8.68 ms/item**, menjamin performa mikroservis FastAPI tetap responsif di bawah beban transaksi tinggi.
 
 ---
 
-### 🔄 2. Simulasi Transisi Stage Industri (*Lifecycle Workflow*)
+### 2. Simulasi Transisi Stage Industri (*Lifecycle Workflow*)
 
 Siklus hidup model diatur melalui skrip modular [`src/models/registry_manager.py`](src/models/registry_manager.py) dengan tahapan berikut:
 
@@ -603,7 +603,7 @@ Version    | Stage        | Status     | Run ID                             | De
 
 ---
 
-### 🔗 3. Sinkronisasi Metadata & Silsilah Data (*Data Lineage*) dengan DVC
+### 3. Sinkronisasi Metadata & Silsilah Data (*Data Lineage*) dengan DVC
 
 Untuk menjamin silsilah data (*data lineage*) tidak terputus, metadata model terpublikasi dicatat dalam file YAML resmi [`models/production_model_reference.yaml`](models/production_model_reference.yaml) dan dilacak langsung dengan **DVC** menghasilkan [`models/production_model_reference.yaml.dvc`](models/production_model_reference.yaml.dvc).
 
@@ -664,7 +664,7 @@ Dengan referensi ini, sistem dapat mengaudit secara presisi bahwa model `StockSe
 
 ---
 
-### 🧪 4. Verifikasi Inferensi Programatik (`mlflow.pyfunc`)
+### 4. Verifikasi Inferensi Programatik (`mlflow.pyfunc`)
 
 Kesiapan sistem inferensi diuji secara menyeluruh melalui [`verify_inference.py`](verify_inference.py) yang memuat model secara programatik langsung dari registry menggunakan URI `models:/StockSentimentClassifier/Production`.
 
@@ -699,7 +699,7 @@ Rata-rata Latensi Inferensi per Item: 8.68 ms (Target industri: < 15.00 ms)
 
 ---
 
-### 💻 5. Panduan Menjalankan Perintah (Reproducibility Guide)
+### 5. Panduan Menjalankan Perintah (Reproducibility Guide)
 
 Pastikan lingkungan virtual Python aktif:
 ```bash
