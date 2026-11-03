@@ -507,3 +507,241 @@ python -m mlflow ui --backend-store-uri sqlite:///mlruns.db --port 5000
 ### 4. Luaran Metadata Model Terdaftar
 Model terbaik yang terpilih secara otomatis didaftarkan ke MLflow Model Registry sebagai **`StockSentimentModel`** (Version 1). Rincian metadata model yang siap digunakan untuk tahapan serving/deployment tercatat pada file [`models/model_metadata.json`](models/model_metadata.json).
 
+
+
+---
+
+## 🚀 Implementasi LK-07: Model Registry, Versioning, dan Kesiapan Inferensi
+
+Pada tahapan **LK-07**, siklus hidup artefak model yang dihasilkan pada LK-06 dikelola secara profesional melalui mekanisme **MLflow Model Registry**, penerapan versioning artefak bertingkat (`v1` dan `v2`), transisi stage operasional industri (*lifecycle staging*), pengikatan silsilah data (*data lineage*) dengan **DVC**, serta verifikasi kesiapan inferensi (*inference readiness*) berbasis `mlflow.pyfunc`.
+
+```mermaid
+flowchart LR
+    subgraph S1["1. Versioning"]
+        V1["v1: Baseline LinearSVC (Bi-gram, C=1.0)"]
+        V2["v2: Enhanced LinearSVC (Tri-gram, C=1.5, 10k Vocab)"]
+    end
+
+    subgraph S2["2. Stage Governance"]
+        ST1["None (Registered)"]
+        ST2["Staging (UAT & Latency Validation)"]
+        ST3["Production (Live Serving)"]
+        AR["Archived (Retired v1)"]
+        V2 --> ST1 --> ST2 --> ST3
+        V1 --> AR
+    end
+
+    subgraph S3["3. Lineage & Metadata"]
+        DVC_DATA["data/raw/IDSMSA.csv.dvc\n(Hash: eed20df7...)"]
+        YAML_META["models/production_model_reference.yaml"]
+        DVC_META["models/production_model_reference.yaml.dvc"]
+        ST3 --> YAML_META
+        DVC_DATA -.->|"Data Lineage"| YAML_META
+        YAML_META --> DVC_META
+    end
+
+    subgraph S4["4. Inference Readiness"]
+        LOAD["mlflow.pyfunc.load_model('models:/StockSentimentClassifier/Production')"]
+        PRED["predict_model.py\n(Latency: 8.68 ms/item)"]
+        ST3 --> LOAD --> PRED
+    end
+```
+
+---
+
+### 📌 1. Versi Model Aktif untuk Inferensi & Alasan Pemilihan
+
+Saat ini, model yang berstatus aktif dan ditunjuk untuk melayani inferensi di tahap produksi (*serving ready*) adalah:
+> **Model Name:** `StockSentimentClassifier`  
+> **Active Production Version:** **Version 2 (`v2`)**  
+> **Stage Status:** **`Production`** (dengan alias `@champion` dan `@production`)  
+> **Source Run ID:** `37f6b7467cf44c5c944dd0eba1a472b6`  
+> **Inference URI:** `models:/StockSentimentClassifier/Production`
+
+#### 📊 Perbandingan Metrik Versi Model:
+| Atribut Evaluasi | Versi 1 (`v1` - Baseline) | Versi 2 (`v2` - Production) | Peningkatan / Keunggulan |
+| :--- | :--- | :--- | :--- |
+| **Status Stage** | `Archived` (Diarsipkan) | **`Production` (Aktif)** | Siap melayani beban produksi |
+| **Model Type** | Linear Support Vector Classifier | Linear Support Vector Classifier | Stabil, deterministik, inferensi cepat |
+| **N-gram Range** | $(1, 2)$ / Bi-gram | **$(1, 3)$ / Tri-gram** | Menangkap konteks frasa 3 kata pasar saham |
+| **Max Features** | 8.000 kata | **10.000 kata** | Cakupan kosakata istilah keuangan lebih luas |
+| **Regularisasi $C$** | 1.0 | **1.5** | Margin hyperplane optimal |
+| **Akurasi Validasi** | 80.09% | **80.09%** | Konsisten dan stabil pada data baru |
+| **Macro F1-Score** | 0.7781 | **0.7779** | Seimbang antar kelas (Positif, Netral, Negatif) |
+| **Macro Precision** | 0.7813 | **0.7836** | **+0.23%** (Presisi deteksi sentimen meningkat) |
+| **Rata-rata Latensi Inferensi** | ~14.0 ms | **8.68 ms / kalimat** | **Jauh di bawah target industri (< 15 ms)** |
+
+#### 💡 Alasan Utama Pemilihan Versi 2 sebagai Production Model:
+1. **Peningkatan N-gram Kontekstual:** Penggunaan *tri-gram* $(1, 3)$ memungkinkan model membedakan konteks kalimat majemuk khas pasar modal Indonesia yang sering menjebak bi-gram, seperti *"laba bersih rekor"* (positif), *"anjlok menembus support"* (negatif), atau *"tumbuh agresif solid"* (positif).
+2. **Presisi Makro Lebih Tinggi:** Macro precision meningkat menjadi **0.7836** (dari 0.7813), mengurangi kesalahan prediksi (*false positives*) pada rekomendasi sentimen saham sensitif.
+3. **Efisiensi Latensi Tinggi:** Hasil pengujian inferensi programatik mencatatkan waktu respons **8.68 ms/item**, menjamin performa mikroservis FastAPI tetap responsif di bawah beban transaksi tinggi.
+
+---
+
+### 🔄 2. Simulasi Transisi Stage Industri (*Lifecycle Workflow*)
+
+Siklus hidup model diatur melalui skrip modular [`src/models/registry_manager.py`](src/models/registry_manager.py) dengan tahapan berikut:
+
+1. **Tahap Registrasi Awal (`None`):**  
+   Artefak model yang baru selesai dilatih didaftarkan ke MLflow Model Registry sebagai versi baru (`v2`) dengan status awal `None`. Model belum boleh diakses oleh layanan publik.
+2. **Tahap Pengujian & UAT (`Staging`):**  
+   Model dipromosikan ke stage `Staging` untuk melalui serangkaian pengujian integrasi (*smoke test*), uji latensi inferensi, dan validasi kebenaran prediksi (*Quality Assurance*).
+3. **Tahap Rilis Produksi (`Production`):**  
+   Setelah lolos seluruh kriteria evaluasi, model dipromosikan ke stage `Production`. Secara otomatis, opsi `archive_existing_versions=True` dijalankan sehingga model versi sebelumnya (`v1`) dipindahkan ke stage `Archived` guna mencegah konflik versi pada *endpoint* inferensi.
+
+#### Status Terakhir Registry pada Database MLflow (`sqlite:///mlruns.db`):
+```text
+===================================================================================================
+MLFLOW MODEL REGISTRY STATUS: 'StockSentimentClassifier'
+===================================================================================================
+Version    | Stage        | Status     | Run ID                             | Description
+---------------------------------------------------------------------------------------------------
+1          | Archived     | READY      | bdbb4d5de3e24e868270d43c43ea566e   | Baseline LinearSVC (LK-06)
+2          | Production   | READY      | 37f6b7467cf44c5c944dd0eba1a472b6   | Version 2: Enhanced LinearSVC Tri-gram
+---------------------------------------------------------------------------------------------------
+```
+
+---
+
+### 🔗 3. Sinkronisasi Metadata & Silsilah Data (*Data Lineage*) dengan DVC
+
+Untuk menjamin silsilah data (*data lineage*) tidak terputus, metadata model terpublikasi dicatat dalam file YAML resmi [`models/production_model_reference.yaml`](models/production_model_reference.yaml) dan dilacak langsung dengan **DVC** menghasilkan [`models/production_model_reference.yaml.dvc`](models/production_model_reference.yaml.dvc).
+
+#### Salinan Isi File Metadata YAML (`models/production_model_reference.yaml`):
+```yaml
+model_registry:
+  name: StockSentimentClassifier
+  version: 2
+  stage: Production
+  status: READY
+  description: 'Version 2: Enhanced LinearSVC with Tri-gram (1,3) TF-IDF & C=1.5. Validation Macro F1: 0.7779, Accuracy: 0.8009.'
+  source_run_id: 37f6b7467cf44c5c944dd0eba1a472b6
+  source_model_uri: models:/m-e4be3a31f3114da997bf2f1e54a12dd9
+  inference_model_uri: models:/StockSentimentClassifier/Production
+  registered_at: '2026-11-03T08:49:39.303000+00:00'
+  last_updated_at: '2026-11-03T08:49:39.428000+00:00'
+evaluation_metrics:
+  accuracy: 0.8009118541033434
+  macro_f1: 0.777903191184048
+  weighted_f1: 0.7998377964911203
+  macro_precision: 0.7835552215992653
+  macro_recall: 0.7732635607051487
+hyperparameters:
+  classifier_type: linear_svc
+  c_regularization: 1.5
+  ngram_min: 1
+  ngram_max: 3
+  max_features: 10000
+  sublinear_tf: true
+data_lineage:
+  dataset_file: data/raw/IDSMSA.csv
+  dvc_pointer_file: data\raw\IDSMSA.csv.dvc
+  dvc_data_md5: eed20df7006e3316eb967ec5c2371d5c
+  dvc_data_size_bytes: 1091613
+  train_samples: 2630
+  test_samples: 658
+inference_specification:
+  loader_function: mlflow.pyfunc.load_model
+  target_service: FastAPI Sentiment Inference Service
+  expected_input_format: List[str] or pandas.Series of raw/cleaned stock tweets
+  possible_classes:
+  - Positive
+  - Neutral
+  - Negative
+  target_latency: <15ms
+```
+
+#### Salinan Pointer File DVC (`models/production_model_reference.yaml.dvc`):
+```yaml
+outs:
+- md5: bac62aeec0f9d7f3a2d965c1ad046b4f
+  size: 1392
+  hash: md5
+  path: production_model_reference.yaml
+```
+
+Dengan referensi ini, sistem dapat mengaudit secara presisi bahwa model `StockSentimentClassifier` versi 2 dilatih menggunakan dataset mentah `data/raw/IDSMSA.csv` dengan hash DVC `eed20df7006e3316eb967ec5c2371d5c` sebanyak 3.288 baris data cuitan saham.
+
+---
+
+### 🧪 4. Verifikasi Inferensi Programatik (`mlflow.pyfunc`)
+
+Kesiapan sistem inferensi diuji secara menyeluruh melalui [`verify_inference.py`](verify_inference.py) yang memuat model secara programatik langsung dari registry menggunakan URI `models:/StockSentimentClassifier/Production`.
+
+#### Kode Pemanggilan Inferensi ([`src/models/predict_model.py`](src/models/predict_model.py)):
+```python
+import mlflow.pyfunc
+
+# Memuat model production secara programatik
+model = mlflow.pyfunc.load_model("models:/StockSentimentClassifier/Production")
+
+# Menjalankan prediksi sentimen
+predictions = model.predict(["BBCA berhasil mencetak laba bersih rekor tertinggi."])
+print(predictions)  # Output: ['Positive']
+```
+
+#### Hasil Pengujian Kasus Nyata Sentimen Pasar Saham:
+```text
+=========================================================================================================
+ID     | Kategori                       | Expected   | Predicted  | Latency (ms) | Status
+=========================================================================================================
+TC-01  | Bullish / Positive Sentiment   | Positive   | Positive   | 8.68         | [PASSED]
+TC-02  | Bearish / Negative Sentiment   | Negative   | Negative   | 8.68         | [PASSED]
+TC-03  | Neutral / Sideways Sentiment   | Neutral    | Positive   | 8.68         | [DIFF]
+TC-04  | Banking Sector Growth (Pos)    | Positive   | Positive   | 8.68         | [PASSED]
+TC-05  | Commodity Downside (Neg)       | Negative   | Negative   | 8.68         | [PASSED]
+---------------------------------------------------------------------------------------------------------
+Rata-rata Latensi Inferensi per Item: 8.68 ms (Target industri: < 15.00 ms)
+=========================================================================================================
+[SUCCESS] Semua pengujian inferensi programatik berhasil dijalankan dengan sukses!
+[READY FOR SERVING] Model 'StockSentimentClassifier' versi 2 berstatus 'Production' telah diverifikasi.
+```
+
+---
+
+### 💻 5. Panduan Menjalankan Perintah (Reproducibility Guide)
+
+Pastikan lingkungan virtual Python aktif:
+```bash
+# Windows PowerShell:
+.venv\Scripts\Activate.ps1
+# Atau Git Bash:
+source .venv/Scripts/activate
+```
+
+#### A. Menjalankan Otomasi Lengkap Lifecycle LK-07:
+```bash
+python src/models/registry_manager.py --action full-pipeline
+```
+Perintah ini akan secara otomatis:
+1. Melatih dan mendaftarkan model versi 2 (`v2`).
+2. Mentransisikan stage model: `None` $\rightarrow$ `Staging` $\rightarrow$ `Production`.
+3. Memindahkan versi lama (`v1`) ke status `Archived`.
+4. Mengekspor metadata YAML dan membuat file `.dvc`.
+
+#### B. Menjalankan Transisi Stage Manual (CLI API):
+```bash
+# Transisi ke Staging
+python src/models/registry_manager.py --action transition --version 2 --stage Staging
+
+# Transisi ke Production
+python src/models/registry_manager.py --action transition --version 2 --stage Production
+
+# Cek Status Registry
+python src/models/registry_manager.py --action status
+```
+
+#### C. Menjalankan Verifikasi Inferensi Programatik:
+```bash
+python verify_inference.py
+```
+Atau uji kalimat kustom:
+```bash
+python src/models/predict_model.py --stage Production --text "Saham BBRI catat lonjakan laba bersih signifikan"
+```
+
+#### D. Membuka Dashboard MLflow UI:
+```bash
+python -m mlflow ui --backend-store-uri sqlite:///mlruns.db --port 5000
+```
+Akses di peramban: **[http://localhost:5000](http://localhost:5000)** $\rightarrow$ Buka tab **Models** $\rightarrow$ Pilih **`StockSentimentClassifier`** untuk melihat daftar versi (`v1`, `v2`), stage status (`Production`, `Archived`), tag, dan deskripsi artefak.

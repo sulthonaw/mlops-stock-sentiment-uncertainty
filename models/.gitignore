@@ -3,3 +3,7 @@
 !.gitignore
 !.gitkeep
 !model_metadata.json
+!production_model_reference.yaml
+!*.dvc
+!*.yaml
+/production_model_reference.yaml
