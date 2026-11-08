@@ -745,3 +745,166 @@ python src/models/predict_model.py --stage Production --text "Saham BBRI catat l
 python -m mlflow ui --backend-store-uri sqlite:///mlruns.db --port 5000
 ```
 Akses di peramban: **[http://localhost:5000](http://localhost:5000)** $\rightarrow$ Buka tab **Models** $\rightarrow$ Pilih **`StockSentimentClassifier`** untuk melihat daftar versi (`v1`, `v2`), stage status (`Production`, `Archived`), tag, dan deskripsi artefak.
+
+
+---
+
+## Implementasi LK-08: Otomasi MLOps "Code as a Trigger" (CI/CD Pipeline)
+
+Pada tahapan **LK-08**, prinsip fundamental MLOps **"Code as a Trigger"** diimplementasikan melalui pembangunan alur kerja otomatisasi end-to-end berbasis **GitHub Actions** (`.github/workflows/mlops-automation.yaml`). Setiap perubahan kode yang di-*push* atau diajukan melalui *Pull Request* secara mandiri memicu seluruh rangkaian pengujian unit, pelatihan ulang model, evaluasi terhadap ambang batas kualitas, hingga promosi otomatis ke *Model Registry*.
+
+```mermaid
+flowchart TD
+    subgraph Trigger["Pemicu Otomatis (Code as a Trigger)"]
+        GIT_PUSH["git push (main / feat/**)"]
+        GIT_PR["Pull Request ke main"]
+        GIT_PUSH --> GHA[".github/workflows/mlops-automation.yaml"]
+        GIT_PR --> GHA
+    end
+
+    subgraph Job1["Tahap 1: Automated Testing (pytest)"]
+        T1["test_preprocessing.py (Normalisasi ID-SMSA)"]
+        T2["test_data_integrity.py (Skema & DVC Check)"]
+        T3["test_model_pipeline.py (Format & Logika Inferensi)"]
+        GHA --> Job1
+    end
+
+    subgraph Job2["Tahap 2: Automated Training"]
+        DVC_STEP["DVC Lineage Verification (dvc status)"]
+        TRAIN_STEP["train.py (Pelatihan Model & Logging MLflow)"]
+        Job1 -->|"12 Tests Passed"| DVC_STEP --> TRAIN_STEP
+    end
+
+    subgraph Job3["Tahap 3 & 4: Evaluation Gate & Auto-Registry"]
+        EVAL_SCRIPT["src/models/evaluate_and_register.py"]
+        CHECK_THRESHOLD{"Val Macro F1 >= 0.75 ?\n(config.yaml LK-01)"}
+        REG_FAIL["Exit Code 1: Pipeline Gagal\n(Cegah Silent Failure)"]
+        REG_PASS["Daftarkan ke MLflow Model Registry\nSet Stage: Staging"]
+        SUMMARY["Laporan Visual di GitHub Step Summary"]
+        
+        TRAIN_STEP --> EVAL_SCRIPT --> CHECK_THRESHOLD
+        CHECK_THRESHOLD -- "Tidak Lolos" --> REG_FAIL
+        CHECK_THRESHOLD -- "Lolos" --> REG_PASS --> SUMMARY
+    end
+```
+
+---
+
+### 1. Struktur Modul Pengujian Otomatis (`tests/`)
+
+Sebanyak 12 test case unit testing disusun pada direktori [`tests/`](tests/) untuk menjamin integritas fungsional sistem:
+
+1. **[`tests/test_preprocessing.py`](tests/test_preprocessing.py):**
+   - Memvalidasi normalisasi URL menjadi token `[URL]`.
+   - Memvalidasi normalisasi sebutan akun pengguna menjadi `[USERNAME]`.
+   - Memvalidasi normalisasi tagar menjadi `[HASHTAG]`.
+   - Memvalidasi perapian spasi ganda, karakter *newline*, dan penanganan data `None`/kosong secara aman.
+2. **[`tests/test_data_integrity.py`](tests/test_data_integrity.py):**
+   - Memvalidasi keberadaan dan struktur file pointer DVC (`data/raw/IDSMSA.csv.dvc`).
+   - Memvalidasi keberadaan kolom wajib `Sentence` dan `Sentiment`.
+   - Memverifikasi kepatuhan nilai kelas sentimen (`Positive`, `Neutral`, `Negative`).
+3. **[`tests/test_model_pipeline.py`](tests/test_model_pipeline.py):**
+   - Memvalidasi keterbacaan ambang batas performa `performance_f1_threshold: 0.75` dari [`config/config.yaml`](config/config.yaml).
+   - Menguji siklus pelatihan *lightweight pipeline* TF-IDF dan Scikit-Learn.
+   - Memverifikasi fungsi inferensi programatik `predict_sentiment`.
+
+Perintah menjalankan unit test secara lokal:
+```bash
+pytest tests/ -v
+```
+
+---
+
+### 2. Ambang Batas Kualitas & Evaluasi Otomatis (Tahap 3)
+
+Ambang batas performa yang disepakati sejak LK-01 didefinisikan pada file konfigurasi pusat [`config/config.yaml`](config/config.yaml):
+```yaml
+active_learning:
+  performance_f1_threshold: 0.75
+```
+
+Skrip [`src/models/evaluate_and_register.py`](src/models/evaluate_and_register.py) bertindak sebagai gerbang kendali mutu (*quality gate*):
+- Jika `val_f1_macro >= 0.75`: Model dinyatakan lolos kualifikasi produksi dan berhak dipromosikan ke tahap berikutnya.
+- Jika `val_f1_macro < 0.75`: Pipeline langsung mengembalikan kode keluar `exit 1` dan menghentikan alur kerja secara paksa. Hal ini secara efektif mencegah terjadinya **Silent Failures** (kondisi di mana sistem tampak berjalan sukses tanpa error sintaks, tetapi model yang dihasilkan cacat performa).
+
+---
+
+### 3. Pembaruan Otomatis ke Model Registry (Tahap 4)
+
+Model yang berhasil lolos gerbang evaluasi akan secara otomatis didaftarkan ke MLflow Model Registry sebagai versi baru dari **`StockSentimentClassifier`** dan langsung dipromosikan ke status stage **`Staging`**.
+
+Pendaftaran ini dilengkapi dengan *metadata tagging* lengkap untuk auditability:
+- `ci_pipeline`: `github-actions-mlops-automation`
+- `gate_status`: `PASSED`
+- `threshold_f1`: `0.75`
+- `actual_val_f1_macro`: metrik aktual hasil evaluasi
+- `git_commit`: hash commit pemicu alur kerja
+- `triggered_by`: aktor/pengguna yang memicu commit
+
+---
+
+### 4. Definisi Alur Kerja GitHub Actions (`.github/workflows/mlops-automation.yaml`)
+
+File konfigurasi workflow GitHub Actions mencakup dua job utama yang terhubung secara dependensi (`needs: automated-testing`):
+
+```yaml
+name: MLOps Automated Continuous Training & Evaluation (Code as a Trigger)
+
+on:
+  push:
+    branches: [ main, "feat/**" ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  automated-testing:
+    name: "Tahap 1: Automated Testing (pytest)"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+      - run: pip install pytest pyyaml pandas scikit-learn dvc mlflow
+      - run: pytest tests/ -v --junitxml=test-results.xml
+
+  automated-training-and-evaluation:
+    name: "Tahap 2-4: Training, Evaluation & Auto-Registry"
+    needs: automated-testing
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+      - run: pip install -r requirements.txt
+      - name: Verify Data & Silsilah Lineage (DVC)
+        run: |
+          dvc pull || echo "Verifying local dataset integrity..."
+          dvc status
+      - name: "Tahap 2: Automated Model Retraining"
+        run: python train.py --classifier logistic_regression --c 2.5 --ngram-max 2 --sublinear-tf
+      - name: "Tahap 3 & 4: Evaluation Gate & Auto-Registry to Staging"
+        run: python src/models/evaluate_and_register.py --stage Staging
+```
+
+---
+
+### 5. Panduan Simulasi "Code as a Trigger" & Pemantauan Log
+
+Untuk mensimulasikan dan membuktikan prinsip "Code as a Trigger":
+1. Lakukan modifikasi kecil pada kode (misalnya penyesuaian parameter regularisasi $C$ pada `train.py`).
+2. Commit dan push perubahan ke GitHub:
+   ```bash
+   git add train.py
+   git commit -m "feat(training): tune hyperparameter C to 2.5 for continuous training trigger"
+   git push origin feat/lk08-automated-ci-cd-pipeline
+   ```
+3. Buka tab **Actions** di repositori GitHub browser Anda:
+   - Amati alur kerja otomatis berjalan tanpa intervensi tombol manual.
+   - Periksa centang hijau pada job `Tahap 1: Automated Testing (pytest)`.
+   - Periksa eksekusi `Tahap 2-4: Training, Evaluation & Auto-Registry`.
+   - Buka bagian **Summary** pada run tersebut untuk melihat tabel visual metrik evaluasi model dan konfirmasi promosi model ke stage `Staging`.

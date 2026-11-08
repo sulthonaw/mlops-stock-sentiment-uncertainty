@@ -1,0 +1,111 @@
+name: MLOps Automated Continuous Training & Evaluation (Code as a Trigger)
+
+# Fulfills LK-08 Requirements:
+# 1. Trigger on push to main/feature branches and pull request.
+# 2. Tahap 1: Automated Testing with pytest.
+# 3. Tahap 2: Automated Training using train.py & DVC data.
+# 4. Tahap 3: Model Evaluation against config.yaml threshold (0.75).
+# 5. Tahap 4: Auto-Registry promotion to 'Staging' on success.
+
+on:
+  push:
+    branches:
+      - main
+      - "feat/**"
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+      - "reports/**"
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  # =========================================================================
+  # TAHAP 1: AUTOMATED UNIT & INTEGRITY TESTING
+  # =========================================================================
+  automated-testing:
+    name: "Tahap 1: Automated Testing (pytest)"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install Testing & Core Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest pyyaml pandas scikit-learn dvc mlflow
+
+      - name: Run Pytest Test Suite
+        run: |
+          python -m pytest tests/ -v --junitxml=test-results.xml
+
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-test-results
+          path: test-results.xml
+          retention-days: 7
+
+  # =========================================================================
+  # TAHAP 2, 3 & 4: AUTOMATED TRAINING, EVALUATION GATE & AUTO-REGISTRY
+  # =========================================================================
+  automated-training-and-evaluation:
+    name: "Tahap 2-4: Training, Evaluation & Auto-Registry"
+    needs: automated-testing
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install Full Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Verify Data & Silsilah Lineage (DVC)
+        run: |
+          echo "=== [DVC SILSILAH LINEAGE CHECK] ==="
+          # If DVC remote is reachable, pull; otherwise verify local tracked data against DVC pointer
+          dvc pull || echo "DVC remote is local or offline; verifying dataset integrity..."
+          dvc status
+          ls -lh data/raw/
+
+      - name: "Tahap 2: Automated Model Retraining (train.py)"
+        run: |
+          echo "=== [TAHAP 2: EXECUTING AUTOMATED TRAINING] ==="
+          python train.py --classifier logistic_regression --c 2.5 --ngram-max 2 --sublinear-tf
+
+      - name: "Tahap 3 & 4: Automated Evaluation Gate & Auto-Registry to Staging"
+        env:
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_ACTOR: ${{ github.actor }}
+        run: |
+          echo "=== [TAHAP 3 & 4: EVALUATION GATE & STAGING PROMOTION] ==="
+          python src/models/evaluate_and_register.py --stage Staging
+
+      - name: Upload Trained Model Metadata Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: model-deployment-metadata
+          path: |
+            models/model_metadata.json
+            mlruns.db
+          retention-days: 14

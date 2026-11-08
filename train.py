@@ -272,7 +272,7 @@ def main():
         )
     else:
         logger.info("Running single model training run...")
-        train_and_log_run(
+        res = train_and_log_run(
             dataset_path=dataset_path,
             classifier_type=args.classifier,
             c_param=args.c,
@@ -284,6 +284,31 @@ def main():
             tracking_uri=args.tracking_uri,
             registered_model_name=args.register_model,
         )
+
+        # Save run metadata for automated CI/CD evaluation
+        models_dir = PROJECT_ROOT / "models"
+        models_dir.mkdir(parents=True, exist_ok=True)
+        metadata_file = models_dir / "model_metadata.json"
+
+        metadata = {
+            "model_registry_name": args.register_model or "StockSentimentClassifier",
+            "model_version": None,
+            "best_run_id": res["run_id"],
+            "best_run_name": res["run_name"],
+            "best_model_artifact_name": res["model_artifact_name"],
+            "selection_metric": "val_f1_macro",
+            "best_metric_value": res["metrics"]["val_f1_macro"],
+            "metrics": res["metrics"],
+            "parameters": res["params"],
+            "registered_at": datetime.now(timezone.utc).isoformat(),
+            "tracking_uri": args.tracking_uri,
+            "experiment_name": args.experiment,
+        }
+
+        with open(metadata_file, "w", encoding="utf-8") as f:
+            json.dump(metadata, f, indent=2)
+
+        logger.info(f"[METADATA] Run metadata successfully written to: {metadata_file}")
 
 
 if __name__ == "__main__":
