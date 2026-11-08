@@ -23,12 +23,12 @@ from mlflow.tracking import MlflowClient
 import numpy as np
 import pandas as pd
 
-from src.models.train_model import DEFAULT_TRACKING_URI
 from src.preprocess import clean_text_idsmsa
 from src.utils.logger import get_logger
 
 logger = get_logger("predict_model")
 
+DEFAULT_TRACKING_URI = "sqlite:///mlruns.db"
 DEFAULT_MODEL_NAME = "StockSentimentClassifier"
 DEFAULT_STAGE = "Production"
 

@@ -41,7 +41,7 @@ jobs:
       - name: Install Testing & Core Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pytest pyyaml pandas scikit-learn dvc mlflow
+          pip install pytest pyyaml pandas scikit-learn dvc mlflow matplotlib seaborn
 
       - name: Run Pytest Test Suite
         run: |
@@ -77,7 +77,7 @@ jobs:
       - name: Install Full Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install pyyaml pandas scikit-learn dvc mlflow matplotlib seaborn
 
       - name: Verify Data & Silsilah Lineage (DVC)
         run: |

@@ -55,3 +55,4 @@ def test_inference_module_import_and_signature():
     """Verify that predict_model inference module is importable and has predict_sentiment function."""
     from src.models.predict_model import predict_sentiment
     assert callable(predict_sentiment)
+

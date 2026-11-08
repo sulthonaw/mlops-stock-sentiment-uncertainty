@@ -24,14 +24,15 @@ if str(PROJECT_ROOT) not in sys.path:
 import mlflow
 from mlflow.tracking import MlflowClient
 
-from src.models.train_model import DEFAULT_EXPERIMENT_NAME, DEFAULT_TRACKING_URI
 from src.utils.logger import get_logger
 
 logger = get_logger("evaluate_and_register")
 
+DEFAULT_TRACKING_URI = "sqlite:///mlruns.db"
+DEFAULT_EXPERIMENT_NAME = "stock-sentiment-analysis"
+DEFAULT_MODEL_NAME = "StockSentimentClassifier"
 CONFIG_FILE = PROJECT_ROOT / "config" / "config.yaml"
 METADATA_FILE = PROJECT_ROOT / "models" / "model_metadata.json"
-DEFAULT_MODEL_NAME = "StockSentimentClassifier"
 
 
 def load_threshold_from_config(config_path: Path = CONFIG_FILE) -> float:
